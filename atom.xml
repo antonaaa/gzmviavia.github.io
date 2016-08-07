@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-08-07T04:49:17.000Z</updated>
+  <updated>2016-08-07T05:13:44.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,111 +16,131 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>text</title>
+    <link href="http://yoursite.com/2016/08/07/text/"/>
+    <id>http://yoursite.com/2016/08/07/text/</id>
+    <published>2016-08-07T05:12:10.000Z</published>
+    <updated>2016-08-07T05:13:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/2016/08/07/text/1.jpg" alt="alt"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/2016/08/07/text/1.jpg&quot; alt=&quot;alt&quot;&gt;&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>地址解析协议ARP</title>
     <link href="http://yoursite.com/2016/08/07/%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90%E5%8D%8F%E8%AE%AEARP/"/>
     <id>http://yoursite.com/2016/08/07/地址解析协议ARP/</id>
     <published>2016-08-07T02:40:38.000Z</published>
     <updated>2016-08-07T04:49:17.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="数据链路层的作用"><a href="#数据链路层的作用" class="headerlink" title="数据链路层的作用"></a>数据链路层的作用</h2><p>数据链路层有三个作用</p>
+    <content type="html"><![CDATA[<h2 id="&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#x7684;&#x4F5C;&#x7528;"><a href="#&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#x7684;&#x4F5C;&#x7528;" class="headerlink" title="&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#x7684;&#x4F5C;&#x7528;"></a>&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#x7684;&#x4F5C;&#x7528;</h2><p>&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#x6709;&#x4E09;&#x4E2A;&#x4F5C;&#x7528;</p>
 <ol>
-<li>为上层的IP模块发送和接收IP数据包。</li>
-<li>为ARP模块发送ARP请求和接收ARP应答。</li>
-<li>为RARP模块发送RARP请求和接收RARP应答。</li>
+<li>&#x4E3A;&#x4E0A;&#x5C42;&#x7684;IP&#x6A21;&#x5757;&#x53D1;&#x9001;&#x548C;&#x63A5;&#x6536;IP&#x6570;&#x636E;&#x5305;&#x3002;</li>
+<li>&#x4E3A;ARP&#x6A21;&#x5757;&#x53D1;&#x9001;ARP&#x8BF7;&#x6C42;&#x548C;&#x63A5;&#x6536;ARP&#x5E94;&#x7B54;&#x3002;</li>
+<li>&#x4E3A;RARP&#x6A21;&#x5757;&#x53D1;&#x9001;RARP&#x8BF7;&#x6C42;&#x548C;&#x63A5;&#x6536;RARP&#x5E94;&#x7B54;&#x3002;</li>
 </ol>
 <a id="more"></a>
-<p><img src="http://obil5saf9.bkt.clouddn.com/arp1.png" alt="Alt 数据链路层首部"></p>
-<p>上图是以太网的帧格式。</p>
-<p>目的地址：目标主机的MAC地址。</p>
-<p>源地址：源主机的MAC地址。</p>
-<p>类型：该帧通过2个字节的类型字段来标识当前帧的用来干嘛的</p>
-<p>当类型为0x0800时，将该帧的数据部分交给IP协议处理。</p>
-<p>当类型为0x0806时，将该帧的数据部分交给ARP协议处理。</p>
-<p>当类型为0x8035时，将该帧的数据部分交给RARP协议处理。</p>
-<p>当交换机收到以太网帧时，判断该帧的MAC地址：</p>
-<p>如果该帧的MAC地址是ff:ff:ff:ff:ff:ff，表明这是一个广播帧，那么交换机就向所有的端口（除了接收到该帧的端口之外）转发该帧。</p>
-<p>如果该帧不是一个广播帧，那么就交换机就查找转发表，看该MAC地址对应了哪个端口，然后就从相应的端口转发出去。</p>
-<p>如果转发表中找不到该MAC地址对应的端口该怎么办？也象处理广播帧一样转发该帧。</p>
-<h2 id="ARP协议的报文格式与工作原理"><a href="#ARP协议的报文格式与工作原理" class="headerlink" title="ARP协议的报文格式与工作原理"></a>ARP协议的报文格式与工作原理</h2><p>ARP协议是属于数据链路层的协议，所以说它是一个局域网协议，也就是说它只能在局域网内部运行。</p>
-<p><img src="http://obil5saf9.bkt.clouddn.com/arp2.png" alt="Alt 数据链路层首部"></p>
-<p>硬件类型：硬件地址的类型，如果是以太网，则该字段为1。</p>
-<p>协议类型：一般为0x0080，表示ipv4协议。</p>
-<p>硬件地址长度：一般为6，硬件地址的长度为6个字节。</p>
-<p>协议地址长度：一般为4，ipv4地址的长度为4个字节。</p>
-<p>操作类型：1为ARP请求，2为ARP应答，3为RARP请求，4为RARP应答。</p>
-<p>发送端以太网地址：发送方的MAC地址。</p>
-<p>发送端IP地址：发送方的IP地址。</p>
-<p>目的以太网地址：目的主机的MAC地址，当为ARP请求时，该字段全为0。</p>
-<p>目的IP地址：目的主机的IP地址。</p>
-<p>那么ARP协议是如何工作的呢？</p>
-<p>我用wireshark抓了个ARP包，这样就能从实际上+原理上分析出ARP是如何工作的。</p>
-<p><img src="http://obil5saf9.bkt.clouddn.com/arp3.png" alt="Alt 数据链路层首部"></p>
-<p>本机的IP地址是197.168.1.100，MAC地址是e0:ac:cb:81:37:9e，因为e0:ac:cb表示该网卡是苹果生产的，所以简写成Apple_81:37:9e，我想知道IP地址为197.168.1.101的MAC地址，所以发送了一个ARP广播。</p>
-<p><img src="http://obil5saf9.bkt.clouddn.com/arp4.png" alt="Alt 数据链路层首部"></p>
-<p>上图是该帧的详细信息，我的电脑封装好该帧之后就发送给交换机了，交换机收到该帧之后，发现目的地址是广播地址，所以向所有的端口转发该帧，当然了，不会向我转发该帧的。</p>
-<p>所以该局域网内的所有主机都会收到该帧，之后每个主机会使用ARP协议解析该帧，然后会根据该帧中的目标主机的IP地址判断该帧是不是发送自己的，如果不是发送给自己的，那么就丢弃该帧；如果是发送给自己的，那么就会发送一个ARP应答帧。</p>
-<p>目的主机发送了一个应答帧给我，我的电脑收到该ARP应答帧之后就会提取出其中的Sender Mac address 和Sender IP address，并将两者的对应关系写入本机的ARP缓存中，当然了该缓存中的每条记录都有一个过期时间的，一般为20分钟。</p>
-<p><img src="http://obil5saf9.bkt.clouddn.com/arp5.png" alt="Alt 数据链路层首部"></p>
-<h2 id="什么时候会使用arp请求协议"><a href="#什么时候会使用arp请求协议" class="headerlink" title="什么时候会使用arp请求协议"></a>什么时候会使用arp请求协议</h2><p>当主机A需要知道自己同属于一个局域网的某个IP地址所对应的MAC地址时，就会去ARP缓存中查找IP地址对应的MAC地址，</p>
-<p>如果不存在，那么就会发出一个ARP请求。</p>
-<p>主机A要和主机B进行通信，主机A会判断主机B是不是和自己在同一个网段。</p>
-<p>如果是和自己在同一个网段，那么帧首部的目的地址就会填主机B的MAC地址，那么交换机收到该帧之后就会发给主机B。</p>
-<p>如果不是和自己在同一个网段，那么就属于跨子网通信，需要路由器的帮助，那么帧的首部的目的地址就要填网关的MAC地址（路由器就是网关的一种），交换机收到该帧之后就会将该帧转发给路由器，路由器收到该帧后会解封该帧，变成IP数据报，</p>
-<p>然后查看目的IP地址发现该IP数据报是发往另一个网段的，就会查看路由表，从其它端口转发出去。</p>
-<h2 id="ARP欺骗和中间人攻击"><a href="#ARP欺骗和中间人攻击" class="headerlink" title="ARP欺骗和中间人攻击"></a>ARP欺骗和中间人攻击</h2><p>ARP的设计是有缺陷的，即主机收到一个ARP应答帧之后，会从中取出对方主机的IP地址和MAC地址，然后将其对应关系写入到ARP缓存中。没错，主机不会关心自己到底有没有发送过该ARP请求包。</p>
-<p>所以黑客可以通过发送伪造的ARP应答帧来进行攻击，ARP欺骗一下有三种方式：</p>
-<h3 id="1-伪造主机："><a href="#1-伪造主机：" class="headerlink" title="1. 伪造主机："></a>1. 伪造主机：</h3><p>主机A的IP地址是192.168.1.2，MAC地址是AA:AA:AA:AA:AA:AA</p>
-<p>主机B的IP地址是192.168.1.3，MAC地址是BB:BB:BB:BB:BB:BB</p>
-<p>主机A源源不断得向网关发送应答帧，将该应答帧的发送端以太网地址设置成AA:AA:AA:AA:AA:AA，</p>
-<p>但是却将发送端IP地址设置成192.168.1.3，那么此时网关的ARP缓存表中就有一项是</p>
+<p><img src="http://obil5saf9.bkt.clouddn.com/arp1.png" alt="Alt &#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#x9996;&#x90E8;"></p>
+<p>&#x4E0A;&#x56FE;&#x662F;&#x4EE5;&#x592A;&#x7F51;&#x7684;&#x5E27;&#x683C;&#x5F0F;&#x3002;</p>
+<p>&#x76EE;&#x7684;&#x5730;&#x5740;&#xFF1A;&#x76EE;&#x6807;&#x4E3B;&#x673A;&#x7684;MAC&#x5730;&#x5740;&#x3002;</p>
+<p>&#x6E90;&#x5730;&#x5740;&#xFF1A;&#x6E90;&#x4E3B;&#x673A;&#x7684;MAC&#x5730;&#x5740;&#x3002;</p>
+<p>&#x7C7B;&#x578B;&#xFF1A;&#x8BE5;&#x5E27;&#x901A;&#x8FC7;2&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x7C7B;&#x578B;&#x5B57;&#x6BB5;&#x6765;&#x6807;&#x8BC6;&#x5F53;&#x524D;&#x5E27;&#x7684;&#x7528;&#x6765;&#x5E72;&#x561B;&#x7684;</p>
+<p>&#x5F53;&#x7C7B;&#x578B;&#x4E3A;0x0800&#x65F6;&#xFF0C;&#x5C06;&#x8BE5;&#x5E27;&#x7684;&#x6570;&#x636E;&#x90E8;&#x5206;&#x4EA4;&#x7ED9;IP&#x534F;&#x8BAE;&#x5904;&#x7406;&#x3002;</p>
+<p>&#x5F53;&#x7C7B;&#x578B;&#x4E3A;0x0806&#x65F6;&#xFF0C;&#x5C06;&#x8BE5;&#x5E27;&#x7684;&#x6570;&#x636E;&#x90E8;&#x5206;&#x4EA4;&#x7ED9;ARP&#x534F;&#x8BAE;&#x5904;&#x7406;&#x3002;</p>
+<p>&#x5F53;&#x7C7B;&#x578B;&#x4E3A;0x8035&#x65F6;&#xFF0C;&#x5C06;&#x8BE5;&#x5E27;&#x7684;&#x6570;&#x636E;&#x90E8;&#x5206;&#x4EA4;&#x7ED9;RARP&#x534F;&#x8BAE;&#x5904;&#x7406;&#x3002;</p>
+<p>&#x5F53;&#x4EA4;&#x6362;&#x673A;&#x6536;&#x5230;&#x4EE5;&#x592A;&#x7F51;&#x5E27;&#x65F6;&#xFF0C;&#x5224;&#x65AD;&#x8BE5;&#x5E27;&#x7684;MAC&#x5730;&#x5740;&#xFF1A;</p>
+<p>&#x5982;&#x679C;&#x8BE5;&#x5E27;&#x7684;MAC&#x5730;&#x5740;&#x662F;ff:ff:ff:ff:ff:ff&#xFF0C;&#x8868;&#x660E;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5E7F;&#x64AD;&#x5E27;&#xFF0C;&#x90A3;&#x4E48;&#x4EA4;&#x6362;&#x673A;&#x5C31;&#x5411;&#x6240;&#x6709;&#x7684;&#x7AEF;&#x53E3;&#xFF08;&#x9664;&#x4E86;&#x63A5;&#x6536;&#x5230;&#x8BE5;&#x5E27;&#x7684;&#x7AEF;&#x53E3;&#x4E4B;&#x5916;&#xFF09;&#x8F6C;&#x53D1;&#x8BE5;&#x5E27;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x8BE5;&#x5E27;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5E7F;&#x64AD;&#x5E27;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4EA4;&#x6362;&#x673A;&#x5C31;&#x67E5;&#x627E;&#x8F6C;&#x53D1;&#x8868;&#xFF0C;&#x770B;&#x8BE5;MAC&#x5730;&#x5740;&#x5BF9;&#x5E94;&#x4E86;&#x54EA;&#x4E2A;&#x7AEF;&#x53E3;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x4ECE;&#x76F8;&#x5E94;&#x7684;&#x7AEF;&#x53E3;&#x8F6C;&#x53D1;&#x51FA;&#x53BB;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x8F6C;&#x53D1;&#x8868;&#x4E2D;&#x627E;&#x4E0D;&#x5230;&#x8BE5;MAC&#x5730;&#x5740;&#x5BF9;&#x5E94;&#x7684;&#x7AEF;&#x53E3;&#x8BE5;&#x600E;&#x4E48;&#x529E;&#xFF1F;&#x4E5F;&#x8C61;&#x5904;&#x7406;&#x5E7F;&#x64AD;&#x5E27;&#x4E00;&#x6837;&#x8F6C;&#x53D1;&#x8BE5;&#x5E27;&#x3002;</p>
+<h2 id="ARP&#x534F;&#x8BAE;&#x7684;&#x62A5;&#x6587;&#x683C;&#x5F0F;&#x4E0E;&#x5DE5;&#x4F5C;&#x539F;&#x7406;"><a href="#ARP&#x534F;&#x8BAE;&#x7684;&#x62A5;&#x6587;&#x683C;&#x5F0F;&#x4E0E;&#x5DE5;&#x4F5C;&#x539F;&#x7406;" class="headerlink" title="ARP&#x534F;&#x8BAE;&#x7684;&#x62A5;&#x6587;&#x683C;&#x5F0F;&#x4E0E;&#x5DE5;&#x4F5C;&#x539F;&#x7406;"></a>ARP&#x534F;&#x8BAE;&#x7684;&#x62A5;&#x6587;&#x683C;&#x5F0F;&#x4E0E;&#x5DE5;&#x4F5C;&#x539F;&#x7406;</h2><p>ARP&#x534F;&#x8BAE;&#x662F;&#x5C5E;&#x4E8E;&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#x7684;&#x534F;&#x8BAE;&#xFF0C;&#x6240;&#x4EE5;&#x8BF4;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x5C40;&#x57DF;&#x7F51;&#x534F;&#x8BAE;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5B83;&#x53EA;&#x80FD;&#x5728;&#x5C40;&#x57DF;&#x7F51;&#x5185;&#x90E8;&#x8FD0;&#x884C;&#x3002;</p>
+<p><img src="http://obil5saf9.bkt.clouddn.com/arp2.png" alt="Alt &#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#x9996;&#x90E8;"></p>
+<p>&#x786C;&#x4EF6;&#x7C7B;&#x578B;&#xFF1A;&#x786C;&#x4EF6;&#x5730;&#x5740;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x4EE5;&#x592A;&#x7F51;&#xFF0C;&#x5219;&#x8BE5;&#x5B57;&#x6BB5;&#x4E3A;1&#x3002;</p>
+<p>&#x534F;&#x8BAE;&#x7C7B;&#x578B;&#xFF1A;&#x4E00;&#x822C;&#x4E3A;0x0080&#xFF0C;&#x8868;&#x793A;ipv4&#x534F;&#x8BAE;&#x3002;</p>
+<p>&#x786C;&#x4EF6;&#x5730;&#x5740;&#x957F;&#x5EA6;&#xFF1A;&#x4E00;&#x822C;&#x4E3A;6&#xFF0C;&#x786C;&#x4EF6;&#x5730;&#x5740;&#x7684;&#x957F;&#x5EA6;&#x4E3A;6&#x4E2A;&#x5B57;&#x8282;&#x3002;</p>
+<p>&#x534F;&#x8BAE;&#x5730;&#x5740;&#x957F;&#x5EA6;&#xFF1A;&#x4E00;&#x822C;&#x4E3A;4&#xFF0C;ipv4&#x5730;&#x5740;&#x7684;&#x957F;&#x5EA6;&#x4E3A;4&#x4E2A;&#x5B57;&#x8282;&#x3002;</p>
+<p>&#x64CD;&#x4F5C;&#x7C7B;&#x578B;&#xFF1A;1&#x4E3A;ARP&#x8BF7;&#x6C42;&#xFF0C;2&#x4E3A;ARP&#x5E94;&#x7B54;&#xFF0C;3&#x4E3A;RARP&#x8BF7;&#x6C42;&#xFF0C;4&#x4E3A;RARP&#x5E94;&#x7B54;&#x3002;</p>
+<p>&#x53D1;&#x9001;&#x7AEF;&#x4EE5;&#x592A;&#x7F51;&#x5730;&#x5740;&#xFF1A;&#x53D1;&#x9001;&#x65B9;&#x7684;MAC&#x5730;&#x5740;&#x3002;</p>
+<p>&#x53D1;&#x9001;&#x7AEF;IP&#x5730;&#x5740;&#xFF1A;&#x53D1;&#x9001;&#x65B9;&#x7684;IP&#x5730;&#x5740;&#x3002;</p>
+<p>&#x76EE;&#x7684;&#x4EE5;&#x592A;&#x7F51;&#x5730;&#x5740;&#xFF1A;&#x76EE;&#x7684;&#x4E3B;&#x673A;&#x7684;MAC&#x5730;&#x5740;&#xFF0C;&#x5F53;&#x4E3A;ARP&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x8BE5;&#x5B57;&#x6BB5;&#x5168;&#x4E3A;0&#x3002;</p>
+<p>&#x76EE;&#x7684;IP&#x5730;&#x5740;&#xFF1A;&#x76EE;&#x7684;&#x4E3B;&#x673A;&#x7684;IP&#x5730;&#x5740;&#x3002;</p>
+<p>&#x90A3;&#x4E48;ARP&#x534F;&#x8BAE;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#x5462;&#xFF1F;</p>
+<p>&#x6211;&#x7528;wireshark&#x6293;&#x4E86;&#x4E2A;ARP&#x5305;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x4ECE;&#x5B9E;&#x9645;&#x4E0A;+&#x539F;&#x7406;&#x4E0A;&#x5206;&#x6790;&#x51FA;ARP&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#x3002;</p>
+<p><img src="http://obil5saf9.bkt.clouddn.com/arp3.png" alt="Alt &#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#x9996;&#x90E8;"></p>
+<p>&#x672C;&#x673A;&#x7684;IP&#x5730;&#x5740;&#x662F;197.168.1.100&#xFF0C;MAC&#x5730;&#x5740;&#x662F;e0:ac:cb:81:37:9e&#xFF0C;&#x56E0;&#x4E3A;e0:ac:cb&#x8868;&#x793A;&#x8BE5;&#x7F51;&#x5361;&#x662F;&#x82F9;&#x679C;&#x751F;&#x4EA7;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x7B80;&#x5199;&#x6210;Apple_81:37:9e&#xFF0C;&#x6211;&#x60F3;&#x77E5;&#x9053;IP&#x5730;&#x5740;&#x4E3A;197.168.1.101&#x7684;MAC&#x5730;&#x5740;&#xFF0C;&#x6240;&#x4EE5;&#x53D1;&#x9001;&#x4E86;&#x4E00;&#x4E2A;ARP&#x5E7F;&#x64AD;&#x3002;</p>
+<p><img src="http://obil5saf9.bkt.clouddn.com/arp4.png" alt="Alt &#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#x9996;&#x90E8;"></p>
+<p>&#x4E0A;&#x56FE;&#x662F;&#x8BE5;&#x5E27;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x6211;&#x7684;&#x7535;&#x8111;&#x5C01;&#x88C5;&#x597D;&#x8BE5;&#x5E27;&#x4E4B;&#x540E;&#x5C31;&#x53D1;&#x9001;&#x7ED9;&#x4EA4;&#x6362;&#x673A;&#x4E86;&#xFF0C;&#x4EA4;&#x6362;&#x673A;&#x6536;&#x5230;&#x8BE5;&#x5E27;&#x4E4B;&#x540E;&#xFF0C;&#x53D1;&#x73B0;&#x76EE;&#x7684;&#x5730;&#x5740;&#x662F;&#x5E7F;&#x64AD;&#x5730;&#x5740;&#xFF0C;&#x6240;&#x4EE5;&#x5411;&#x6240;&#x6709;&#x7684;&#x7AEF;&#x53E3;&#x8F6C;&#x53D1;&#x8BE5;&#x5E27;&#xFF0C;&#x5F53;&#x7136;&#x4E86;&#xFF0C;&#x4E0D;&#x4F1A;&#x5411;&#x6211;&#x8F6C;&#x53D1;&#x8BE5;&#x5E27;&#x7684;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x8BE5;&#x5C40;&#x57DF;&#x7F51;&#x5185;&#x7684;&#x6240;&#x6709;&#x4E3B;&#x673A;&#x90FD;&#x4F1A;&#x6536;&#x5230;&#x8BE5;&#x5E27;&#xFF0C;&#x4E4B;&#x540E;&#x6BCF;&#x4E2A;&#x4E3B;&#x673A;&#x4F1A;&#x4F7F;&#x7528;ARP&#x534F;&#x8BAE;&#x89E3;&#x6790;&#x8BE5;&#x5E27;&#xFF0C;&#x7136;&#x540E;&#x4F1A;&#x6839;&#x636E;&#x8BE5;&#x5E27;&#x4E2D;&#x7684;&#x76EE;&#x6807;&#x4E3B;&#x673A;&#x7684;IP&#x5730;&#x5740;&#x5224;&#x65AD;&#x8BE5;&#x5E27;&#x662F;&#x4E0D;&#x662F;&#x53D1;&#x9001;&#x81EA;&#x5DF1;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x662F;&#x53D1;&#x9001;&#x7ED9;&#x81EA;&#x5DF1;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4E22;&#x5F03;&#x8BE5;&#x5E27;&#xFF1B;&#x5982;&#x679C;&#x662F;&#x53D1;&#x9001;&#x7ED9;&#x81EA;&#x5DF1;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x53D1;&#x9001;&#x4E00;&#x4E2A;ARP&#x5E94;&#x7B54;&#x5E27;&#x3002;</p>
+<p>&#x76EE;&#x7684;&#x4E3B;&#x673A;&#x53D1;&#x9001;&#x4E86;&#x4E00;&#x4E2A;&#x5E94;&#x7B54;&#x5E27;&#x7ED9;&#x6211;&#xFF0C;&#x6211;&#x7684;&#x7535;&#x8111;&#x6536;&#x5230;&#x8BE5;ARP&#x5E94;&#x7B54;&#x5E27;&#x4E4B;&#x540E;&#x5C31;&#x4F1A;&#x63D0;&#x53D6;&#x51FA;&#x5176;&#x4E2D;&#x7684;Sender Mac address &#x548C;Sender IP address&#xFF0C;&#x5E76;&#x5C06;&#x4E24;&#x8005;&#x7684;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;&#x5199;&#x5165;&#x672C;&#x673A;&#x7684;ARP&#x7F13;&#x5B58;&#x4E2D;&#xFF0C;&#x5F53;&#x7136;&#x4E86;&#x8BE5;&#x7F13;&#x5B58;&#x4E2D;&#x7684;&#x6BCF;&#x6761;&#x8BB0;&#x5F55;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x7684;&#xFF0C;&#x4E00;&#x822C;&#x4E3A;20&#x5206;&#x949F;&#x3002;</p>
+<p><img src="http://obil5saf9.bkt.clouddn.com/arp5.png" alt="Alt &#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#x9996;&#x90E8;"></p>
+<h2 id="&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x4F1A;&#x4F7F;&#x7528;arp&#x8BF7;&#x6C42;&#x534F;&#x8BAE;"><a href="#&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x4F1A;&#x4F7F;&#x7528;arp&#x8BF7;&#x6C42;&#x534F;&#x8BAE;" class="headerlink" title="&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x4F1A;&#x4F7F;&#x7528;arp&#x8BF7;&#x6C42;&#x534F;&#x8BAE;"></a>&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x4F1A;&#x4F7F;&#x7528;arp&#x8BF7;&#x6C42;&#x534F;&#x8BAE;</h2><p>&#x5F53;&#x4E3B;&#x673A;A&#x9700;&#x8981;&#x77E5;&#x9053;&#x81EA;&#x5DF1;&#x540C;&#x5C5E;&#x4E8E;&#x4E00;&#x4E2A;&#x5C40;&#x57DF;&#x7F51;&#x7684;&#x67D0;&#x4E2A;IP&#x5730;&#x5740;&#x6240;&#x5BF9;&#x5E94;&#x7684;MAC&#x5730;&#x5740;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x53BB;ARP&#x7F13;&#x5B58;&#x4E2D;&#x67E5;&#x627E;IP&#x5730;&#x5740;&#x5BF9;&#x5E94;&#x7684;MAC&#x5730;&#x5740;&#xFF0C;</p>
+<p>&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x53D1;&#x51FA;&#x4E00;&#x4E2A;ARP&#x8BF7;&#x6C42;&#x3002;</p>
+<p>&#x4E3B;&#x673A;A&#x8981;&#x548C;&#x4E3B;&#x673A;B&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#xFF0C;&#x4E3B;&#x673A;A&#x4F1A;&#x5224;&#x65AD;&#x4E3B;&#x673A;B&#x662F;&#x4E0D;&#x662F;&#x548C;&#x81EA;&#x5DF1;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x7F51;&#x6BB5;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x662F;&#x548C;&#x81EA;&#x5DF1;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x7F51;&#x6BB5;&#xFF0C;&#x90A3;&#x4E48;&#x5E27;&#x9996;&#x90E8;&#x7684;&#x76EE;&#x7684;&#x5730;&#x5740;&#x5C31;&#x4F1A;&#x586B;&#x4E3B;&#x673A;B&#x7684;MAC&#x5730;&#x5740;&#xFF0C;&#x90A3;&#x4E48;&#x4EA4;&#x6362;&#x673A;&#x6536;&#x5230;&#x8BE5;&#x5E27;&#x4E4B;&#x540E;&#x5C31;&#x4F1A;&#x53D1;&#x7ED9;&#x4E3B;&#x673A;B&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4E0D;&#x662F;&#x548C;&#x81EA;&#x5DF1;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x7F51;&#x6BB5;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x5C5E;&#x4E8E;&#x8DE8;&#x5B50;&#x7F51;&#x901A;&#x4FE1;&#xFF0C;&#x9700;&#x8981;&#x8DEF;&#x7531;&#x5668;&#x7684;&#x5E2E;&#x52A9;&#xFF0C;&#x90A3;&#x4E48;&#x5E27;&#x7684;&#x9996;&#x90E8;&#x7684;&#x76EE;&#x7684;&#x5730;&#x5740;&#x5C31;&#x8981;&#x586B;&#x7F51;&#x5173;&#x7684;MAC&#x5730;&#x5740;&#xFF08;&#x8DEF;&#x7531;&#x5668;&#x5C31;&#x662F;&#x7F51;&#x5173;&#x7684;&#x4E00;&#x79CD;&#xFF09;&#xFF0C;&#x4EA4;&#x6362;&#x673A;&#x6536;&#x5230;&#x8BE5;&#x5E27;&#x4E4B;&#x540E;&#x5C31;&#x4F1A;&#x5C06;&#x8BE5;&#x5E27;&#x8F6C;&#x53D1;&#x7ED9;&#x8DEF;&#x7531;&#x5668;&#xFF0C;&#x8DEF;&#x7531;&#x5668;&#x6536;&#x5230;&#x8BE5;&#x5E27;&#x540E;&#x4F1A;&#x89E3;&#x5C01;&#x8BE5;&#x5E27;&#xFF0C;&#x53D8;&#x6210;IP&#x6570;&#x636E;&#x62A5;&#xFF0C;</p>
+<p>&#x7136;&#x540E;&#x67E5;&#x770B;&#x76EE;&#x7684;IP&#x5730;&#x5740;&#x53D1;&#x73B0;&#x8BE5;IP&#x6570;&#x636E;&#x62A5;&#x662F;&#x53D1;&#x5F80;&#x53E6;&#x4E00;&#x4E2A;&#x7F51;&#x6BB5;&#x7684;&#xFF0C;&#x5C31;&#x4F1A;&#x67E5;&#x770B;&#x8DEF;&#x7531;&#x8868;&#xFF0C;&#x4ECE;&#x5176;&#x5B83;&#x7AEF;&#x53E3;&#x8F6C;&#x53D1;&#x51FA;&#x53BB;&#x3002;</p>
+<h2 id="ARP&#x6B3A;&#x9A97;&#x548C;&#x4E2D;&#x95F4;&#x4EBA;&#x653B;&#x51FB;"><a href="#ARP&#x6B3A;&#x9A97;&#x548C;&#x4E2D;&#x95F4;&#x4EBA;&#x653B;&#x51FB;" class="headerlink" title="ARP&#x6B3A;&#x9A97;&#x548C;&#x4E2D;&#x95F4;&#x4EBA;&#x653B;&#x51FB;"></a>ARP&#x6B3A;&#x9A97;&#x548C;&#x4E2D;&#x95F4;&#x4EBA;&#x653B;&#x51FB;</h2><p>ARP&#x7684;&#x8BBE;&#x8BA1;&#x662F;&#x6709;&#x7F3A;&#x9677;&#x7684;&#xFF0C;&#x5373;&#x4E3B;&#x673A;&#x6536;&#x5230;&#x4E00;&#x4E2A;ARP&#x5E94;&#x7B54;&#x5E27;&#x4E4B;&#x540E;&#xFF0C;&#x4F1A;&#x4ECE;&#x4E2D;&#x53D6;&#x51FA;&#x5BF9;&#x65B9;&#x4E3B;&#x673A;&#x7684;IP&#x5730;&#x5740;&#x548C;MAC&#x5730;&#x5740;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x5176;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;&#x5199;&#x5165;&#x5230;ARP&#x7F13;&#x5B58;&#x4E2D;&#x3002;&#x6CA1;&#x9519;&#xFF0C;&#x4E3B;&#x673A;&#x4E0D;&#x4F1A;&#x5173;&#x5FC3;&#x81EA;&#x5DF1;&#x5230;&#x5E95;&#x6709;&#x6CA1;&#x6709;&#x53D1;&#x9001;&#x8FC7;&#x8BE5;ARP&#x8BF7;&#x6C42;&#x5305;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x9ED1;&#x5BA2;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53D1;&#x9001;&#x4F2A;&#x9020;&#x7684;ARP&#x5E94;&#x7B54;&#x5E27;&#x6765;&#x8FDB;&#x884C;&#x653B;&#x51FB;&#xFF0C;ARP&#x6B3A;&#x9A97;&#x4E00;&#x4E0B;&#x6709;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<h3 id="1-&#x4F2A;&#x9020;&#x4E3B;&#x673A;&#xFF1A;"><a href="#1-&#x4F2A;&#x9020;&#x4E3B;&#x673A;&#xFF1A;" class="headerlink" title="1. &#x4F2A;&#x9020;&#x4E3B;&#x673A;&#xFF1A;"></a>1. &#x4F2A;&#x9020;&#x4E3B;&#x673A;&#xFF1A;</h3><p>&#x4E3B;&#x673A;A&#x7684;IP&#x5730;&#x5740;&#x662F;192.168.1.2&#xFF0C;MAC&#x5730;&#x5740;&#x662F;AA:AA:AA:AA:AA:AA</p>
+<p>&#x4E3B;&#x673A;B&#x7684;IP&#x5730;&#x5740;&#x662F;192.168.1.3&#xFF0C;MAC&#x5730;&#x5740;&#x662F;BB:BB:BB:BB:BB:BB</p>
+<p>&#x4E3B;&#x673A;A&#x6E90;&#x6E90;&#x4E0D;&#x65AD;&#x5F97;&#x5411;&#x7F51;&#x5173;&#x53D1;&#x9001;&#x5E94;&#x7B54;&#x5E27;&#xFF0C;&#x5C06;&#x8BE5;&#x5E94;&#x7B54;&#x5E27;&#x7684;&#x53D1;&#x9001;&#x7AEF;&#x4EE5;&#x592A;&#x7F51;&#x5730;&#x5740;&#x8BBE;&#x7F6E;&#x6210;AA:AA:AA:AA:AA:AA&#xFF0C;</p>
+<p>&#x4F46;&#x662F;&#x5374;&#x5C06;&#x53D1;&#x9001;&#x7AEF;IP&#x5730;&#x5740;&#x8BBE;&#x7F6E;&#x6210;192.168.1.3&#xFF0C;&#x90A3;&#x4E48;&#x6B64;&#x65F6;&#x7F51;&#x5173;&#x7684;ARP&#x7F13;&#x5B58;&#x8868;&#x4E2D;&#x5C31;&#x6709;&#x4E00;&#x9879;&#x662F;</p>
 <p>192.168.1.3  AA:AA:AA:AA:AA:AA</p>
-<p>那么网关就会将发送给192.168.1.3的IP数据包封装成帧的时候目的MAC地址填写成AA:AA:AA:AA:AA:AA，</p>
-<p>我们知道局域网是使用MAC地址寻址的，所以最终该帧会被转发给主机A。</p>
-<h3 id="2-伪造网关"><a href="#2-伪造网关" class="headerlink" title="2. 伪造网关:"></a>2. 伪造网关:</h3><p>主机A的IP地址是192.168.1.2，MAC地址是AA:AA:AA:AA:AA:AA</p>
-<p>网关的IP地址是192.168.1.1，MAC地址是GG:GG:GG:GG:GG:GG</p>
-<p>主机A源源不断得向被攻击主机B发送应答帧，将该应答帧的发送端以太网地址设置成AA:AA:AA:AA:AA:AA，</p>
-<p>但是却将发送端IP地址设置成192.168.1.1，那么此时主机B的ARP缓存表中就有一项是</p>
+<p>&#x90A3;&#x4E48;&#x7F51;&#x5173;&#x5C31;&#x4F1A;&#x5C06;&#x53D1;&#x9001;&#x7ED9;192.168.1.3&#x7684;IP&#x6570;&#x636E;&#x5305;&#x5C01;&#x88C5;&#x6210;&#x5E27;&#x7684;&#x65F6;&#x5019;&#x76EE;&#x7684;MAC&#x5730;&#x5740;&#x586B;&#x5199;&#x6210;AA:AA:AA:AA:AA:AA&#xFF0C;</p>
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x5C40;&#x57DF;&#x7F51;&#x662F;&#x4F7F;&#x7528;MAC&#x5730;&#x5740;&#x5BFB;&#x5740;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6700;&#x7EC8;&#x8BE5;&#x5E27;&#x4F1A;&#x88AB;&#x8F6C;&#x53D1;&#x7ED9;&#x4E3B;&#x673A;A&#x3002;</p>
+<h3 id="2-&#x4F2A;&#x9020;&#x7F51;&#x5173;"><a href="#2-&#x4F2A;&#x9020;&#x7F51;&#x5173;" class="headerlink" title="2. &#x4F2A;&#x9020;&#x7F51;&#x5173;:"></a>2. &#x4F2A;&#x9020;&#x7F51;&#x5173;:</h3><p>&#x4E3B;&#x673A;A&#x7684;IP&#x5730;&#x5740;&#x662F;192.168.1.2&#xFF0C;MAC&#x5730;&#x5740;&#x662F;AA:AA:AA:AA:AA:AA</p>
+<p>&#x7F51;&#x5173;&#x7684;IP&#x5730;&#x5740;&#x662F;192.168.1.1&#xFF0C;MAC&#x5730;&#x5740;&#x662F;GG:GG:GG:GG:GG:GG</p>
+<p>&#x4E3B;&#x673A;A&#x6E90;&#x6E90;&#x4E0D;&#x65AD;&#x5F97;&#x5411;&#x88AB;&#x653B;&#x51FB;&#x4E3B;&#x673A;B&#x53D1;&#x9001;&#x5E94;&#x7B54;&#x5E27;&#xFF0C;&#x5C06;&#x8BE5;&#x5E94;&#x7B54;&#x5E27;&#x7684;&#x53D1;&#x9001;&#x7AEF;&#x4EE5;&#x592A;&#x7F51;&#x5730;&#x5740;&#x8BBE;&#x7F6E;&#x6210;AA:AA:AA:AA:AA:AA&#xFF0C;</p>
+<p>&#x4F46;&#x662F;&#x5374;&#x5C06;&#x53D1;&#x9001;&#x7AEF;IP&#x5730;&#x5740;&#x8BBE;&#x7F6E;&#x6210;192.168.1.1&#xFF0C;&#x90A3;&#x4E48;&#x6B64;&#x65F6;&#x4E3B;&#x673A;B&#x7684;ARP&#x7F13;&#x5B58;&#x8868;&#x4E2D;&#x5C31;&#x6709;&#x4E00;&#x9879;&#x662F;</p>
 <p>192.168.1.1 AA:AA:AA:AA:AA:AA</p>
-<p>那么所有从主机B发给网关的IP数据包被封装成帧时，都会将目的MAC地址填写成AA:AA:AA:AA:AA:AA，</p>
-<p>所以该帧最终会被转发给主机A。</p>
-<h3 id="3-中间人攻击（伪造主机-伪造网关）"><a href="#3-中间人攻击（伪造主机-伪造网关）" class="headerlink" title="3. 中间人攻击（伪造主机+伪造网关）"></a>3. 中间人攻击（伪造主机+伪造网关）</h3><p>以上两种方式都会造成被攻击主机断网，所以很快就会被发现了，我们要偷偷地截取数据，所以不能让被攻击主机断网。</p>
-<p>主机A的IP地址是192.168.1.2，MAC地址是AA:AA:AA:AA:AA:AA</p>
-<p>主机B的IP地址是192.168.1.3，MAC地址是BB:BB:BB:BB:BB:BB</p>
-<p>网关的IP地址是192.168.1.1，MAC地址是GG:GG:GG:GG:GG:GG</p>
-<p>主机A源源不断得向网关发送应答帧，将该应答帧的发送端以太网地址设置成AA:AA:AA:AA:AA:AA，</p>
-<p>但是却将发送端IP地址设置成192.168.1.3，那么所有发给主机B的数据都会被主机A所截获。</p>
-<p>主机A源源不断得向被攻击主机B发送应答帧，将该应答帧的发送端以太网地址设置成AA:AA:AA:AA:AA:AA，</p>
-<p>但是却将发送端IP地址设置成192.168.1.1，那么所有从主机B发出的数据都会被主机A所截获，因为主机B认为主机A就是网关。</p>
-<p>如果主机A没有开启路由转发功能，那么解开截获的帧之后，发现该IP数据报目的IP地址不是自己，那么就会丢弃该IP数据报。</p>
-<p>如果主机A此时开启路由转发功能，那么发现该IP数据报的目的IP地址不是自己，那么主机A会根据P数据报的目的IP地址将其封装成正确的帧，从而转发到正确的主机。</p>
-<p>封装成帧的时候如果不知道该IP地址所对应的MAC地址，可以发出ARP请求，然后就能获得该IP地址对应的MAC地址。</p>
-<p>osx系统命令行查看是否开启路由转发功能sudo sysctl -a | grep forward</p>
-<p>osx系统命令行开启路由转发功能sysctl -w net.inet.ip.forwarding=1</p>
-<p>osx系统命令行关闭路由转发功能sysctl -w net.inet.ip.forwarding=0</p>
-<p>注：必须源源不断地发送伪造的ARP包，因为有的主机（具体看操作系统实现）会定时向网关发送ARP请求，这就会刷新网关和主机自身的ARP缓存，所以ARP攻击必须发的比它们还多，从而掩盖掉它们。</p>
-<h2 id="ARP欺骗只能发生在局域网里面吗"><a href="#ARP欺骗只能发生在局域网里面吗" class="headerlink" title="ARP欺骗只能发生在局域网里面吗"></a>ARP欺骗只能发生在局域网里面吗</h2><p>如果不考虑代理ARP的话，那么ARP只能发生在局域网里面，因为ARP广播是不能跨越路由器的。</p>
-<p>所以说，如果你要使用ARP攻击某台主机，那么你必须和它在同一个局域网内，这样你就能截获它发往外网的数据，也能截获外网发给它的数据。</p>
-<h2 id="ARP欺骗解决方案"><a href="#ARP欺骗解决方案" class="headerlink" title="ARP欺骗解决方案"></a>ARP欺骗解决方案</h2><p>1、在网关路由器中绑定所有PC机和IP地址和MAC地址。 这样就能防止别人伪造成主机了。<br>2、在PC机上绑定网关路由器内网口IP地址和MAC地址。  这样就能防止别人伪造成网关了。</p>
-<h2 id="ARP攻击软件"><a href="#ARP攻击软件" class="headerlink" title="ARP攻击软件"></a>ARP攻击软件</h2><p><a href="http://www.pc6.com/mac/129593.html" target="_blank" rel="external">Debookee</a><br>该攻击软件的原理:<a href="http://blog.csdn.net/icodeyou/article/details/49556627" target="_blank" rel="external">mac工具–通过 arp 欺骗抓取局域网内设备数据包</a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="http://www.2cto.com/Article/201509/441866.html" target="_blank" rel="external">记一次实验室局域网的ARP欺骗</a></li>
-<li><a href="http://blog.csdn.net/qq_15437667/article/details/50743182" target="_blank" rel="external">苹果电脑macbook/mac_os开启路由转发功能</a></li>
+<p>&#x90A3;&#x4E48;&#x6240;&#x6709;&#x4ECE;&#x4E3B;&#x673A;B&#x53D1;&#x7ED9;&#x7F51;&#x5173;&#x7684;IP&#x6570;&#x636E;&#x5305;&#x88AB;&#x5C01;&#x88C5;&#x6210;&#x5E27;&#x65F6;&#xFF0C;&#x90FD;&#x4F1A;&#x5C06;&#x76EE;&#x7684;MAC&#x5730;&#x5740;&#x586B;&#x5199;&#x6210;AA:AA:AA:AA:AA:AA&#xFF0C;</p>
+<p>&#x6240;&#x4EE5;&#x8BE5;&#x5E27;&#x6700;&#x7EC8;&#x4F1A;&#x88AB;&#x8F6C;&#x53D1;&#x7ED9;&#x4E3B;&#x673A;A&#x3002;</p>
+<h3 id="3-&#x4E2D;&#x95F4;&#x4EBA;&#x653B;&#x51FB;&#xFF08;&#x4F2A;&#x9020;&#x4E3B;&#x673A;-&#x4F2A;&#x9020;&#x7F51;&#x5173;&#xFF09;"><a href="#3-&#x4E2D;&#x95F4;&#x4EBA;&#x653B;&#x51FB;&#xFF08;&#x4F2A;&#x9020;&#x4E3B;&#x673A;-&#x4F2A;&#x9020;&#x7F51;&#x5173;&#xFF09;" class="headerlink" title="3. &#x4E2D;&#x95F4;&#x4EBA;&#x653B;&#x51FB;&#xFF08;&#x4F2A;&#x9020;&#x4E3B;&#x673A;+&#x4F2A;&#x9020;&#x7F51;&#x5173;&#xFF09;"></a>3. &#x4E2D;&#x95F4;&#x4EBA;&#x653B;&#x51FB;&#xFF08;&#x4F2A;&#x9020;&#x4E3B;&#x673A;+&#x4F2A;&#x9020;&#x7F51;&#x5173;&#xFF09;</h3><p>&#x4EE5;&#x4E0A;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x90FD;&#x4F1A;&#x9020;&#x6210;&#x88AB;&#x653B;&#x51FB;&#x4E3B;&#x673A;&#x65AD;&#x7F51;&#xFF0C;&#x6240;&#x4EE5;&#x5F88;&#x5FEB;&#x5C31;&#x4F1A;&#x88AB;&#x53D1;&#x73B0;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x5077;&#x5077;&#x5730;&#x622A;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x80FD;&#x8BA9;&#x88AB;&#x653B;&#x51FB;&#x4E3B;&#x673A;&#x65AD;&#x7F51;&#x3002;</p>
+<p>&#x4E3B;&#x673A;A&#x7684;IP&#x5730;&#x5740;&#x662F;192.168.1.2&#xFF0C;MAC&#x5730;&#x5740;&#x662F;AA:AA:AA:AA:AA:AA</p>
+<p>&#x4E3B;&#x673A;B&#x7684;IP&#x5730;&#x5740;&#x662F;192.168.1.3&#xFF0C;MAC&#x5730;&#x5740;&#x662F;BB:BB:BB:BB:BB:BB</p>
+<p>&#x7F51;&#x5173;&#x7684;IP&#x5730;&#x5740;&#x662F;192.168.1.1&#xFF0C;MAC&#x5730;&#x5740;&#x662F;GG:GG:GG:GG:GG:GG</p>
+<p>&#x4E3B;&#x673A;A&#x6E90;&#x6E90;&#x4E0D;&#x65AD;&#x5F97;&#x5411;&#x7F51;&#x5173;&#x53D1;&#x9001;&#x5E94;&#x7B54;&#x5E27;&#xFF0C;&#x5C06;&#x8BE5;&#x5E94;&#x7B54;&#x5E27;&#x7684;&#x53D1;&#x9001;&#x7AEF;&#x4EE5;&#x592A;&#x7F51;&#x5730;&#x5740;&#x8BBE;&#x7F6E;&#x6210;AA:AA:AA:AA:AA:AA&#xFF0C;</p>
+<p>&#x4F46;&#x662F;&#x5374;&#x5C06;&#x53D1;&#x9001;&#x7AEF;IP&#x5730;&#x5740;&#x8BBE;&#x7F6E;&#x6210;192.168.1.3&#xFF0C;&#x90A3;&#x4E48;&#x6240;&#x6709;&#x53D1;&#x7ED9;&#x4E3B;&#x673A;B&#x7684;&#x6570;&#x636E;&#x90FD;&#x4F1A;&#x88AB;&#x4E3B;&#x673A;A&#x6240;&#x622A;&#x83B7;&#x3002;</p>
+<p>&#x4E3B;&#x673A;A&#x6E90;&#x6E90;&#x4E0D;&#x65AD;&#x5F97;&#x5411;&#x88AB;&#x653B;&#x51FB;&#x4E3B;&#x673A;B&#x53D1;&#x9001;&#x5E94;&#x7B54;&#x5E27;&#xFF0C;&#x5C06;&#x8BE5;&#x5E94;&#x7B54;&#x5E27;&#x7684;&#x53D1;&#x9001;&#x7AEF;&#x4EE5;&#x592A;&#x7F51;&#x5730;&#x5740;&#x8BBE;&#x7F6E;&#x6210;AA:AA:AA:AA:AA:AA&#xFF0C;</p>
+<p>&#x4F46;&#x662F;&#x5374;&#x5C06;&#x53D1;&#x9001;&#x7AEF;IP&#x5730;&#x5740;&#x8BBE;&#x7F6E;&#x6210;192.168.1.1&#xFF0C;&#x90A3;&#x4E48;&#x6240;&#x6709;&#x4ECE;&#x4E3B;&#x673A;B&#x53D1;&#x51FA;&#x7684;&#x6570;&#x636E;&#x90FD;&#x4F1A;&#x88AB;&#x4E3B;&#x673A;A&#x6240;&#x622A;&#x83B7;&#xFF0C;&#x56E0;&#x4E3A;&#x4E3B;&#x673A;B&#x8BA4;&#x4E3A;&#x4E3B;&#x673A;A&#x5C31;&#x662F;&#x7F51;&#x5173;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4E3B;&#x673A;A&#x6CA1;&#x6709;&#x5F00;&#x542F;&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;&#xFF0C;&#x90A3;&#x4E48;&#x89E3;&#x5F00;&#x622A;&#x83B7;&#x7684;&#x5E27;&#x4E4B;&#x540E;&#xFF0C;&#x53D1;&#x73B0;&#x8BE5;IP&#x6570;&#x636E;&#x62A5;&#x76EE;&#x7684;IP&#x5730;&#x5740;&#x4E0D;&#x662F;&#x81EA;&#x5DF1;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x4E22;&#x5F03;&#x8BE5;IP&#x6570;&#x636E;&#x62A5;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4E3B;&#x673A;A&#x6B64;&#x65F6;&#x5F00;&#x542F;&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;&#xFF0C;&#x90A3;&#x4E48;&#x53D1;&#x73B0;&#x8BE5;IP&#x6570;&#x636E;&#x62A5;&#x7684;&#x76EE;&#x7684;IP&#x5730;&#x5740;&#x4E0D;&#x662F;&#x81EA;&#x5DF1;&#xFF0C;&#x90A3;&#x4E48;&#x4E3B;&#x673A;A&#x4F1A;&#x6839;&#x636E;P&#x6570;&#x636E;&#x62A5;&#x7684;&#x76EE;&#x7684;IP&#x5730;&#x5740;&#x5C06;&#x5176;&#x5C01;&#x88C5;&#x6210;&#x6B63;&#x786E;&#x7684;&#x5E27;&#xFF0C;&#x4ECE;&#x800C;&#x8F6C;&#x53D1;&#x5230;&#x6B63;&#x786E;&#x7684;&#x4E3B;&#x673A;&#x3002;</p>
+<p>&#x5C01;&#x88C5;&#x6210;&#x5E27;&#x7684;&#x65F6;&#x5019;&#x5982;&#x679C;&#x4E0D;&#x77E5;&#x9053;&#x8BE5;IP&#x5730;&#x5740;&#x6240;&#x5BF9;&#x5E94;&#x7684;MAC&#x5730;&#x5740;&#xFF0C;&#x53EF;&#x4EE5;&#x53D1;&#x51FA;ARP&#x8BF7;&#x6C42;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x80FD;&#x83B7;&#x5F97;&#x8BE5;IP&#x5730;&#x5740;&#x5BF9;&#x5E94;&#x7684;MAC&#x5730;&#x5740;&#x3002;</p>
+<p>osx&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x884C;&#x67E5;&#x770B;&#x662F;&#x5426;&#x5F00;&#x542F;&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;sudo sysctl -a | grep forward</p>
+<p>osx&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x884C;&#x5F00;&#x542F;&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;sysctl -w net.inet.ip.forwarding=1</p>
+<p>osx&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x884C;&#x5173;&#x95ED;&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;sysctl -w net.inet.ip.forwarding=0</p>
+<p>&#x6CE8;&#xFF1A;&#x5FC5;&#x987B;&#x6E90;&#x6E90;&#x4E0D;&#x65AD;&#x5730;&#x53D1;&#x9001;&#x4F2A;&#x9020;&#x7684;ARP&#x5305;&#xFF0C;&#x56E0;&#x4E3A;&#x6709;&#x7684;&#x4E3B;&#x673A;&#xFF08;&#x5177;&#x4F53;&#x770B;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5B9E;&#x73B0;&#xFF09;&#x4F1A;&#x5B9A;&#x65F6;&#x5411;&#x7F51;&#x5173;&#x53D1;&#x9001;ARP&#x8BF7;&#x6C42;&#xFF0C;&#x8FD9;&#x5C31;&#x4F1A;&#x5237;&#x65B0;&#x7F51;&#x5173;&#x548C;&#x4E3B;&#x673A;&#x81EA;&#x8EAB;&#x7684;ARP&#x7F13;&#x5B58;&#xFF0C;&#x6240;&#x4EE5;ARP&#x653B;&#x51FB;&#x5FC5;&#x987B;&#x53D1;&#x7684;&#x6BD4;&#x5B83;&#x4EEC;&#x8FD8;&#x591A;&#xFF0C;&#x4ECE;&#x800C;&#x63A9;&#x76D6;&#x6389;&#x5B83;&#x4EEC;&#x3002;</p>
+<h2 id="ARP&#x6B3A;&#x9A97;&#x53EA;&#x80FD;&#x53D1;&#x751F;&#x5728;&#x5C40;&#x57DF;&#x7F51;&#x91CC;&#x9762;&#x5417;"><a href="#ARP&#x6B3A;&#x9A97;&#x53EA;&#x80FD;&#x53D1;&#x751F;&#x5728;&#x5C40;&#x57DF;&#x7F51;&#x91CC;&#x9762;&#x5417;" class="headerlink" title="ARP&#x6B3A;&#x9A97;&#x53EA;&#x80FD;&#x53D1;&#x751F;&#x5728;&#x5C40;&#x57DF;&#x7F51;&#x91CC;&#x9762;&#x5417;"></a>ARP&#x6B3A;&#x9A97;&#x53EA;&#x80FD;&#x53D1;&#x751F;&#x5728;&#x5C40;&#x57DF;&#x7F51;&#x91CC;&#x9762;&#x5417;</h2><p>&#x5982;&#x679C;&#x4E0D;&#x8003;&#x8651;&#x4EE3;&#x7406;ARP&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x4E48;ARP&#x53EA;&#x80FD;&#x53D1;&#x751F;&#x5728;&#x5C40;&#x57DF;&#x7F51;&#x91CC;&#x9762;&#xFF0C;&#x56E0;&#x4E3A;ARP&#x5E7F;&#x64AD;&#x662F;&#x4E0D;&#x80FD;&#x8DE8;&#x8D8A;&#x8DEF;&#x7531;&#x5668;&#x7684;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x8981;&#x4F7F;&#x7528;ARP&#x653B;&#x51FB;&#x67D0;&#x53F0;&#x4E3B;&#x673A;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x5FC5;&#x987B;&#x548C;&#x5B83;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x5C40;&#x57DF;&#x7F51;&#x5185;&#xFF0C;&#x8FD9;&#x6837;&#x4F60;&#x5C31;&#x80FD;&#x622A;&#x83B7;&#x5B83;&#x53D1;&#x5F80;&#x5916;&#x7F51;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4E5F;&#x80FD;&#x622A;&#x83B7;&#x5916;&#x7F51;&#x53D1;&#x7ED9;&#x5B83;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<h2 id="ARP&#x6B3A;&#x9A97;&#x89E3;&#x51B3;&#x65B9;&#x6848;"><a href="#ARP&#x6B3A;&#x9A97;&#x89E3;&#x51B3;&#x65B9;&#x6848;" class="headerlink" title="ARP&#x6B3A;&#x9A97;&#x89E3;&#x51B3;&#x65B9;&#x6848;"></a>ARP&#x6B3A;&#x9A97;&#x89E3;&#x51B3;&#x65B9;&#x6848;</h2><p>1&#x3001;&#x5728;&#x7F51;&#x5173;&#x8DEF;&#x7531;&#x5668;&#x4E2D;&#x7ED1;&#x5B9A;&#x6240;&#x6709;PC&#x673A;&#x548C;IP&#x5730;&#x5740;&#x548C;MAC&#x5730;&#x5740;&#x3002; &#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x9632;&#x6B62;&#x522B;&#x4EBA;&#x4F2A;&#x9020;&#x6210;&#x4E3B;&#x673A;&#x4E86;&#x3002;<br>2&#x3001;&#x5728;PC&#x673A;&#x4E0A;&#x7ED1;&#x5B9A;&#x7F51;&#x5173;&#x8DEF;&#x7531;&#x5668;&#x5185;&#x7F51;&#x53E3;IP&#x5730;&#x5740;&#x548C;MAC&#x5730;&#x5740;&#x3002;  &#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x9632;&#x6B62;&#x522B;&#x4EBA;&#x4F2A;&#x9020;&#x6210;&#x7F51;&#x5173;&#x4E86;&#x3002;</p>
+<h2 id="ARP&#x653B;&#x51FB;&#x8F6F;&#x4EF6;"><a href="#ARP&#x653B;&#x51FB;&#x8F6F;&#x4EF6;" class="headerlink" title="ARP&#x653B;&#x51FB;&#x8F6F;&#x4EF6;"></a>ARP&#x653B;&#x51FB;&#x8F6F;&#x4EF6;</h2><p><a href="http://www.pc6.com/mac/129593.html" target="_blank" rel="external">Debookee</a><br>&#x8BE5;&#x653B;&#x51FB;&#x8F6F;&#x4EF6;&#x7684;&#x539F;&#x7406;:<a href="http://blog.csdn.net/icodeyou/article/details/49556627" target="_blank" rel="external">mac&#x5DE5;&#x5177;&#x2013;&#x901A;&#x8FC7; arp &#x6B3A;&#x9A97;&#x6293;&#x53D6;&#x5C40;&#x57DF;&#x7F51;&#x5185;&#x8BBE;&#x5907;&#x6570;&#x636E;&#x5305;</a></p>
+<h2 id="&#x53C2;&#x8003;"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</h2><ul>
+<li><a href="http://www.2cto.com/Article/201509/441866.html" target="_blank" rel="external">&#x8BB0;&#x4E00;&#x6B21;&#x5B9E;&#x9A8C;&#x5BA4;&#x5C40;&#x57DF;&#x7F51;&#x7684;ARP&#x6B3A;&#x9A97;</a></li>
+<li><a href="http://blog.csdn.net/qq_15437667/article/details/50743182" target="_blank" rel="external">&#x82F9;&#x679C;&#x7535;&#x8111;macbook/mac_os&#x5F00;&#x542F;&#x8DEF;&#x7531;&#x8F6C;&#x53D1;&#x529F;&#x80FD;</a></li>
 </ul>
 <ul>
-<li><a href="http://www.utt.com.cn/reference.php?id=1541" target="_blank" rel="external">三种方法找出内网的ARP攻击源</a></li>
+<li><a href="http://www.utt.com.cn/reference.php?id=1541" target="_blank" rel="external">&#x4E09;&#x79CD;&#x65B9;&#x6CD5;&#x627E;&#x51FA;&#x5185;&#x7F51;&#x7684;ARP&#x653B;&#x51FB;&#x6E90;</a></li>
 </ul>
 <ul>
-<li><a href="http://www.cnblogs.com/duanv/p/4589625.html" target="_blank" rel="external">ARP协议抓包之帧长度和Gratuitous ARP的问题</a></li>
+<li><a href="http://www.cnblogs.com/duanv/p/4589625.html" target="_blank" rel="external">ARP&#x534F;&#x8BAE;&#x6293;&#x5305;&#x4E4B;&#x5E27;&#x957F;&#x5EA6;&#x548C;Gratuitous ARP&#x7684;&#x95EE;&#x9898;</a></li>
 </ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;数据链路层的作用&quot;&gt;&lt;a href=&quot;#数据链路层的作用&quot; class=&quot;headerlink&quot; title=&quot;数据链路层的作用&quot;&gt;&lt;/a&gt;数据链路层的作用&lt;/h2&gt;&lt;p&gt;数据链路层有三个作用&lt;/p&gt;
+      &lt;h2 id=&quot;&amp;#x6570;&amp;#x636E;&amp;#x94FE;&amp;#x8DEF;&amp;#x5C42;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#&amp;#x6570;&amp;#x636E;&amp;#x94FE;&amp;#x8DEF;&amp;#x5C42;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6570;&amp;#x636E;&amp;#x94FE;&amp;#x8DEF;&amp;#x5C42;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&quot;&gt;&lt;/a&gt;&amp;#x6570;&amp;#x636E;&amp;#x94FE;&amp;#x8DEF;&amp;#x5C42;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&lt;/h2&gt;&lt;p&gt;&amp;#x6570;&amp;#x636E;&amp;#x94FE;&amp;#x8DEF;&amp;#x5C42;&amp;#x6709;&amp;#x4E09;&amp;#x4E2A;&amp;#x4F5C;&amp;#x7528;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;为上层的IP模块发送和接收IP数据包。&lt;/li&gt;
-&lt;li&gt;为ARP模块发送ARP请求和接收ARP应答。&lt;/li&gt;
-&lt;li&gt;为RARP模块发送RARP请求和接收RARP应答。&lt;/li&gt;
+&lt;li&gt;&amp;#x4E3A;&amp;#x4E0A;&amp;#x5C42;&amp;#x7684;IP&amp;#x6A21;&amp;#x5757;&amp;#x53D1;&amp;#x9001;&amp;#x548C;&amp;#x63A5;&amp;#x6536;IP&amp;#x6570;&amp;#x636E;&amp;#x5305;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;&amp;#x4E3A;ARP&amp;#x6A21;&amp;#x5757;&amp;#x53D1;&amp;#x9001;ARP&amp;#x8BF7;&amp;#x6C42;&amp;#x548C;&amp;#x63A5;&amp;#x6536;ARP&amp;#x5E94;&amp;#x7B54;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;&amp;#x4E3A;RARP&amp;#x6A21;&amp;#x5757;&amp;#x53D1;&amp;#x9001;RARP&amp;#x8BF7;&amp;#x6C42;&amp;#x548C;&amp;#x63A5;&amp;#x6536;RARP&amp;#x5E94;&amp;#x7B54;&amp;#x3002;&lt;/li&gt;
 &lt;/ol&gt;
     
     </summary>
@@ -140,39 +160,39 @@
     <updated>2016-08-07T05:04:13.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
-<p>hexo是一个基于node.js的静态博客程序，你可以使用markdown语言来编写你的博客，你可以使用hexo提供的命令将其转换成生成静态网页，hexo会根据主题模板自动将你的文章转为网页。</p>
+<p>hexo&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;node.js&#x7684;&#x9759;&#x6001;&#x535A;&#x5BA2;&#x7A0B;&#x5E8F;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;markdown&#x8BED;&#x8A00;&#x6765;&#x7F16;&#x5199;&#x4F60;&#x7684;&#x535A;&#x5BA2;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;hexo&#x63D0;&#x4F9B;&#x7684;&#x547D;&#x4EE4;&#x5C06;&#x5176;&#x8F6C;&#x6362;&#x6210;&#x751F;&#x6210;&#x9759;&#x6001;&#x7F51;&#x9875;&#xFF0C;hexo&#x4F1A;&#x6839;&#x636E;&#x4E3B;&#x9898;&#x6A21;&#x677F;&#x81EA;&#x52A8;&#x5C06;&#x4F60;&#x7684;&#x6587;&#x7AE0;&#x8F6C;&#x4E3A;&#x7F51;&#x9875;&#x3002;</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="hexo安装和发布流程"><a href="#hexo安装和发布流程" class="headerlink" title="hexo安装和发布流程"></a>hexo安装和发布流程</h2><p><img src="http://obil5saf9.bkt.clouddn.com/20160808hexo_flow" alt="Alt hexo安装和发布流程图"></p>
-<h3 id="1-下载Git"><a href="#1-下载Git" class="headerlink" title="1.下载Git"></a>1.下载Git</h3><hr>
-<p>我的电脑是osx系统，所以使用brew这个包管理工具，如果是linux系统可以使用apt-get包管理工具。</p>
-<p>osx系统使用以下命令下载git<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo brew install git</div></pre></td></tr></table></figure></p>
-<p>linux系统使用以下命令下载git<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure></p>
-<h3 id="2-下载node-js"><a href="#2-下载node-js" class="headerlink" title="2.下载node.js"></a>2.下载node.js</h3><hr>
-<p>hexo是使用node.js编写的，所以你要安装node.js，hexo才能够正常运行。</p>
-<p>osx系统使用以下命令下载node.js<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo brew install nodejs</div></pre></td></tr></table></figure></p>
-<p>linux系统使用以下命令下载node.js<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install nodejs</div></pre></td></tr></table></figure></p>
-<h3 id="3-下载hexo"><a href="#3-下载hexo" class="headerlink" title="3.下载hexo"></a>3.下载hexo</h3><hr>
-<h4 id="1-安装hexo"><a href="#1-安装hexo" class="headerlink" title="1.安装hexo"></a>1.安装hexo</h4><p>使用以下命令安装hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g hexo</div></pre></td></tr></table></figure></p>
-<p>使用以下命令生成博客的工作目录，以后所有的操作都会在该目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo hexo init blog</div><div class="line"><span class="built_in">cd</span> blog <span class="comment">#进入该目录，以后的所有命令都在该目录下执行</span></div></pre></td></tr></table></figure></p>
-<p>使用以下命令安装依赖项，会在blog目录中安装node_modules<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install</div></pre></td></tr></table></figure></p>
-<h4 id="2-使用hexo"><a href="#2-使用hexo" class="headerlink" title="2.使用hexo"></a>2.使用hexo</h4><p>上面已经完成了hexo的搭建了，接下来只要使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g</div></pre></td></tr></table></figure></p>
-<p>生成静态文件，然后使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s</div></pre></td></tr></table></figure></p>
-<p>开启服务器，那么就可以通过<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 来访问我们自己的博客了。<br>hexo常用的命令有：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hexo g <span class="comment">#生成静态文件</span></div><div class="line">hexo s <span class="comment">#开启服务器</span></div><div class="line">hexo d <span class="comment">#将.deploy_git部署到你的github</span></div><div class="line">hexo new <span class="string">"postname"</span> <span class="comment">#新建文章</span></div><div class="line">hexo new page <span class="string">"pagename"</span> <span class="comment">#新建页面</span></div></pre></td></tr></table></figure></p>
-<h3 id="4-部署到github上"><a href="#4-部署到github上" class="headerlink" title="4.部署到github上"></a>4.部署到github上</h3><hr>
-<p>使用以下命令生成SSH Keys<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C<span class="string">"这里是你申请Github账号时的邮箱"</span></div></pre></td></tr></table></figure></p>
-<p>将~/.ssh/id_rsa.pub中的公钥添加到github</p>
-<p>配置git<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name<span class="string">"这里是你申请Github账号时的name"</span></div><div class="line">git config --global user.email<span class="string">"这里是你申请Github账号时的邮箱"</span></div></pre></td></tr></table></figure></p>
-<p>使用以下命令查看是否能够SSH成功github<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-T git@github.com</div></pre></td></tr></table></figure></p>
-<p>修改博客根目录下的_config.yml文件，修改文件的最后为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repo: https://github.com/gzmviavia/gzmviavia.github.io.git <span class="comment">#这里要修改成你自己的参考名</span></div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
-<p>最后使用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d</div></pre></td></tr></table></figure></p>
-<p>就可以将项目部署上github上了。<br>其实部署的只是由hexo生成的静态页面，我们书写的markdown还是在本地存储的，所以不要以为你部署到github上你就不用备份本地的博客了。</p>
+<h2 id="hexo&#x5B89;&#x88C5;&#x548C;&#x53D1;&#x5E03;&#x6D41;&#x7A0B;"><a href="#hexo&#x5B89;&#x88C5;&#x548C;&#x53D1;&#x5E03;&#x6D41;&#x7A0B;" class="headerlink" title="hexo&#x5B89;&#x88C5;&#x548C;&#x53D1;&#x5E03;&#x6D41;&#x7A0B;"></a>hexo&#x5B89;&#x88C5;&#x548C;&#x53D1;&#x5E03;&#x6D41;&#x7A0B;</h2><p><img src="http://obil5saf9.bkt.clouddn.com/20160808hexo_flow" alt="Alt hexo&#x5B89;&#x88C5;&#x548C;&#x53D1;&#x5E03;&#x6D41;&#x7A0B;&#x56FE;"></p>
+<h3 id="1-&#x4E0B;&#x8F7D;Git"><a href="#1-&#x4E0B;&#x8F7D;Git" class="headerlink" title="1.&#x4E0B;&#x8F7D;Git"></a>1.&#x4E0B;&#x8F7D;Git</h3><hr>
+<p>&#x6211;&#x7684;&#x7535;&#x8111;&#x662F;osx&#x7CFB;&#x7EDF;&#xFF0C;&#x6240;&#x4EE5;&#x4F7F;&#x7528;brew&#x8FD9;&#x4E2A;&#x5305;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#xFF0C;&#x5982;&#x679C;&#x662F;linux&#x7CFB;&#x7EDF;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;apt-get&#x5305;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#x3002;</p>
+<p>osx&#x7CFB;&#x7EDF;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x4E0B;&#x8F7D;git<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo brew install git</div></pre></td></tr></table></figure></p>
+<p>linux&#x7CFB;&#x7EDF;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x4E0B;&#x8F7D;git<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure></p>
+<h3 id="2-&#x4E0B;&#x8F7D;node-js"><a href="#2-&#x4E0B;&#x8F7D;node-js" class="headerlink" title="2.&#x4E0B;&#x8F7D;node.js"></a>2.&#x4E0B;&#x8F7D;node.js</h3><hr>
+<p>hexo&#x662F;&#x4F7F;&#x7528;node.js&#x7F16;&#x5199;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x8981;&#x5B89;&#x88C5;node.js&#xFF0C;hexo&#x624D;&#x80FD;&#x591F;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#x3002;</p>
+<p>osx&#x7CFB;&#x7EDF;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x4E0B;&#x8F7D;node.js<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo brew install nodejs</div></pre></td></tr></table></figure></p>
+<p>linux&#x7CFB;&#x7EDF;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x4E0B;&#x8F7D;node.js<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install nodejs</div></pre></td></tr></table></figure></p>
+<h3 id="3-&#x4E0B;&#x8F7D;hexo"><a href="#3-&#x4E0B;&#x8F7D;hexo" class="headerlink" title="3.&#x4E0B;&#x8F7D;hexo"></a>3.&#x4E0B;&#x8F7D;hexo</h3><hr>
+<h4 id="1-&#x5B89;&#x88C5;hexo"><a href="#1-&#x5B89;&#x88C5;hexo" class="headerlink" title="1.&#x5B89;&#x88C5;hexo"></a>1.&#x5B89;&#x88C5;hexo</h4><p>&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x5B89;&#x88C5;hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g hexo</div></pre></td></tr></table></figure></p>
+<p>&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x751F;&#x6210;&#x535A;&#x5BA2;&#x7684;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#xFF0C;&#x4EE5;&#x540E;&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x4F1A;&#x5728;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo hexo init blog</div><div class="line"><span class="built_in">cd</span> blog <span class="comment">#&#x8FDB;&#x5165;&#x8BE5;&#x76EE;&#x5F55;&#xFF0C;&#x4EE5;&#x540E;&#x7684;&#x6240;&#x6709;&#x547D;&#x4EE4;&#x90FD;&#x5728;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;&#x6267;&#x884C;</span></div></pre></td></tr></table></figure></p>
+<p>&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x9879;&#xFF0C;&#x4F1A;&#x5728;blog&#x76EE;&#x5F55;&#x4E2D;&#x5B89;&#x88C5;node_modules<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install</div></pre></td></tr></table></figure></p>
+<h4 id="2-&#x4F7F;&#x7528;hexo"><a href="#2-&#x4F7F;&#x7528;hexo" class="headerlink" title="2.&#x4F7F;&#x7528;hexo"></a>2.&#x4F7F;&#x7528;hexo</h4><p>&#x4E0A;&#x9762;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x4E86;hexo&#x7684;&#x642D;&#x5EFA;&#x4E86;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x53EA;&#x8981;&#x4F7F;&#x7528;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g</div></pre></td></tr></table></figure></p>
+<p>&#x751F;&#x6210;&#x9759;&#x6001;&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s</div></pre></td></tr></table></figure></p>
+<p>&#x5F00;&#x542F;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> &#x6765;&#x8BBF;&#x95EE;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x7684;&#x535A;&#x5BA2;&#x4E86;&#x3002;<br>hexo&#x5E38;&#x7528;&#x7684;&#x547D;&#x4EE4;&#x6709;&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hexo g <span class="comment">#&#x751F;&#x6210;&#x9759;&#x6001;&#x6587;&#x4EF6;</span></div><div class="line">hexo s <span class="comment">#&#x5F00;&#x542F;&#x670D;&#x52A1;&#x5668;</span></div><div class="line">hexo d <span class="comment">#&#x5C06;.deploy_git&#x90E8;&#x7F72;&#x5230;&#x4F60;&#x7684;github</span></div><div class="line">hexo new <span class="string">&quot;postname&quot;</span> <span class="comment">#&#x65B0;&#x5EFA;&#x6587;&#x7AE0;</span></div><div class="line">hexo new page <span class="string">&quot;pagename&quot;</span> <span class="comment">#&#x65B0;&#x5EFA;&#x9875;&#x9762;</span></div></pre></td></tr></table></figure></p>
+<h3 id="4-&#x90E8;&#x7F72;&#x5230;github&#x4E0A;"><a href="#4-&#x90E8;&#x7F72;&#x5230;github&#x4E0A;" class="headerlink" title="4.&#x90E8;&#x7F72;&#x5230;github&#x4E0A;"></a>4.&#x90E8;&#x7F72;&#x5230;github&#x4E0A;</h3><hr>
+<p>&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x751F;&#x6210;SSH Keys<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C<span class="string">&quot;&#x8FD9;&#x91CC;&#x662F;&#x4F60;&#x7533;&#x8BF7;Github&#x8D26;&#x53F7;&#x65F6;&#x7684;&#x90AE;&#x7BB1;&quot;</span></div></pre></td></tr></table></figure></p>
+<p>&#x5C06;~/.ssh/id_rsa.pub&#x4E2D;&#x7684;&#x516C;&#x94A5;&#x6DFB;&#x52A0;&#x5230;github</p>
+<p>&#x914D;&#x7F6E;git<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name<span class="string">&quot;&#x8FD9;&#x91CC;&#x662F;&#x4F60;&#x7533;&#x8BF7;Github&#x8D26;&#x53F7;&#x65F6;&#x7684;name&quot;</span></div><div class="line">git config --global user.email<span class="string">&quot;&#x8FD9;&#x91CC;&#x662F;&#x4F60;&#x7533;&#x8BF7;Github&#x8D26;&#x53F7;&#x65F6;&#x7684;&#x90AE;&#x7BB1;&quot;</span></div></pre></td></tr></table></figure></p>
+<p>&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x662F;&#x5426;&#x80FD;&#x591F;SSH&#x6210;&#x529F;github<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-T git@github.com</div></pre></td></tr></table></figure></p>
+<p>&#x4FEE;&#x6539;&#x535A;&#x5BA2;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x7684;_config.yml&#x6587;&#x4EF6;&#xFF0C;&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x7684;&#x6700;&#x540E;&#x4E3A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repo: https://github.com/gzmviavia/gzmviavia.github.io.git <span class="comment">#&#x8FD9;&#x91CC;&#x8981;&#x4FEE;&#x6539;&#x6210;&#x4F60;&#x81EA;&#x5DF1;&#x7684;&#x53C2;&#x8003;&#x540D;</span></div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
+<p>&#x6700;&#x540E;&#x4F7F;&#x7528;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d</div></pre></td></tr></table></figure></p>
+<p>&#x5C31;&#x53EF;&#x4EE5;&#x5C06;&#x9879;&#x76EE;&#x90E8;&#x7F72;&#x4E0A;github&#x4E0A;&#x4E86;&#x3002;<br>&#x5176;&#x5B9E;&#x90E8;&#x7F72;&#x7684;&#x53EA;&#x662F;&#x7531;hexo&#x751F;&#x6210;&#x7684;&#x9759;&#x6001;&#x9875;&#x9762;&#xFF0C;&#x6211;&#x4EEC;&#x4E66;&#x5199;&#x7684;markdown&#x8FD8;&#x662F;&#x5728;&#x672C;&#x5730;&#x5B58;&#x50A8;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x8981;&#x4EE5;&#x4E3A;&#x4F60;&#x90E8;&#x7F72;&#x5230;github&#x4E0A;&#x4F60;&#x5C31;&#x4E0D;&#x7528;&#x5907;&#x4EFD;&#x672C;&#x5730;&#x7684;&#x535A;&#x5BA2;&#x4E86;&#x3002;</p>
 ]]></content>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;hexo是一个基于node.js的静态博客程序，你可以使用markdown语言来编写你的博客，你可以使用hexo提供的命令将其转换成生成静态网页，hexo会根据主题模板自动将你的文章转为网页。&lt;/p&gt;
+&lt;p&gt;hexo&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x57FA;&amp;#x4E8E;node.js&amp;#x7684;&amp;#x9759;&amp;#x6001;&amp;#x535A;&amp;#x5BA2;&amp;#x7A0B;&amp;#x5E8F;&amp;#xFF0C;&amp;#x4F60;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528;markdown&amp;#x8BED;&amp;#x8A00;&amp;#x6765;&amp;#x7F16;&amp;#x5199;&amp;#x4F60;&amp;#x7684;&amp;#x535A;&amp;#x5BA2;&amp;#xFF0C;&amp;#x4F60;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528;hexo&amp;#x63D0;&amp;#x4F9B;&amp;#x7684;&amp;#x547D;&amp;#x4EE4;&amp;#x5C06;&amp;#x5176;&amp;#x8F6C;&amp;#x6362;&amp;#x6210;&amp;#x751F;&amp;#x6210;&amp;#x9759;&amp;#x6001;&amp;#x7F51;&amp;#x9875;&amp;#xFF0C;hexo&amp;#x4F1A;&amp;#x6839;&amp;#x636E;&amp;#x4E3B;&amp;#x9898;&amp;#x6A21;&amp;#x677F;&amp;#x81EA;&amp;#x52A8;&amp;#x5C06;&amp;#x4F60;&amp;#x7684;&amp;#x6587;&amp;#x7AE0;&amp;#x8F6C;&amp;#x4E3A;&amp;#x7F51;&amp;#x9875;&amp;#x3002;&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
