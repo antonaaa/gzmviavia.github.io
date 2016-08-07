@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/08/07/backup-hexo/</loc>
+    
+    <lastmod>2016-08-07T08:18:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/08/07/use-hexo-github-to-build-blog/</loc>
     
     <lastmod>2016-08-07T07:18:38.000Z</lastmod>
