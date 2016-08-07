@@ -1,28 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>gzmviavia</title>
-  <subtitle>this is a blog</subtitle>
-  <link href="/atom.xml" rel="self"/>
-  
-  <link href="http://yoursite.com/"/>
-  <updated>2016-08-07T02:12:43.000Z</updated>
-  <id>http://yoursite.com/</id>
-  
-  <author>
-    <name>gzmviavia</name>
-    
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>hexo + github 搭建博客</title>
-    <link href="http://yoursite.com/2016/08/07/hexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://yoursite.com/2016/08/07/hexo-github搭建博客/</id>
-    <published>2016-08-07T00:51:49.000Z</published>
-    <updated>2016-08-07T02:12:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="description" content="this is a blog"><meta name="viewport" content="width=device-width, initial-scale=1"><title>hexo + github 搭建博客 · gzmviavia</title><link rel="short icon" href="/favicon.ico"><!-- font--><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto Mono"><!-- icon--><link rel="stylesheet" href="/fonts/iconfont/iconfont.css"><!-- theme style--><link rel="stylesheet" href="/css/style.css"><!-- baidu analytics--><script type="text/javascript">var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9e0cbea7d3319c6c94c71dfb93c151b8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><!-- google analytics--><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-74273646-1', 'auto');
+ga('send', 'pageview');</script></head><body><div id="main"><header><a href="/." class="logo">gzmviavia</a><ul class="nav"><li class="nav-link"><a href="/" target="_self">Home</a></li><li class="nav-link"><a href="/archives/" target="_self">Archives</a></li><li class="nav-link"><a href="/categories/" target="_self">Categories</a></li><li class="nav-link"><a href="/tags/" target="_self">Tags</a></li><li class="nav-link"><a href="/about/" target="_self">About</a></li></ul></header><section id="container"><article class="post"><h1 class="post-title">hexo + github 搭建博客</h1><span class="post-time">Aug 7, 2016</span><div id="sidebar" class="post-sidebar"><h3 class="heading">Directory</h3><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo安装和发布流程"><span class="toc-text">hexo安装和发布流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-下载Git"><span class="toc-text">1.下载Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-下载node-js"><span class="toc-text">2.下载node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-下载hexo"><span class="toc-text">3.下载hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-安装hexo"><span class="toc-text">1.安装hexo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-使用hexo"><span class="toc-text">2.使用hexo</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-部署到github上"><span class="toc-text">4.部署到github上</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-生成SSH-Keys"><span class="toc-text">1.生成SSH Keys</span></a></li></ol></li></ol></li></ol></div><div class="post-content"><blockquote>
 <p>hexo是一个基于node.js的静态博客程序，你可以使用markdown语言来编写你的博客，你可以使用hexo提供的命令将其转换成生成静态网页，hexo会根据主题模板自动将你的文章转为网页。</p>
 </blockquote>
 <h2 id="hexo安装和发布流程"><a href="#hexo安装和发布流程" class="headerlink" title="hexo安装和发布流程"></a>hexo安装和发布流程</h2><p><img src="http://obil5saf9.bkt.clouddn.com/20160808hexo_flow" alt="Alt hexo安装和发布流程图"></p>
@@ -41,47 +30,12 @@
 <h4 id="2-使用hexo"><a href="#2-使用hexo" class="headerlink" title="2.使用hexo"></a>2.使用hexo</h4><p>上面已经完成了hexo的搭建了，接下来只要使用<code>hexo g</code>生成静态文件，然后使用<code>hexo s</code>开启服务器，那么就可以通过<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 来访问我们自己的博客了<br>hexo常用的命令有：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hexo g <span class="comment">#生成静态文件</span></div><div class="line">hexo s <span class="comment">#开启服务器</span></div><div class="line">hexo d <span class="comment">#将.deploy_git部署到你的github</span></div><div class="line">hexo new <span class="string">"postname"</span> <span class="comment">#新建文章</span></div><div class="line">hexo new page <span class="string">"pagename"</span> <span class="comment">#新建页面</span></div></pre></td></tr></table></figure></p>
 <h3 id="4-部署到github上"><a href="#4-部署到github上" class="headerlink" title="4.部署到github上"></a>4.部署到github上</h3><hr>
 <h4 id="1-生成SSH-Keys"><a href="#1-生成SSH-Keys" class="headerlink" title="1.生成SSH Keys"></a>1.生成SSH Keys</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C<span class="string">"这里是你申请Github账号时的邮箱"</span></div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;hexo是一个基于node.js的静态博客程序，你可以使用markdown语言来编写你的博客，你可以使用hexo提供的命令将其转换成生成静态网页，hexo会根据主题模板自动将你的文章转为网页。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;h
-    
-    </summary>
-    
-    
-      <category term="github" scheme="http://yoursite.com/tags/github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>你好，世界</title>
-    <link href="http://yoursite.com/2016/08/07/hello-world/"/>
-    <id>http://yoursite.com/2016/08/07/hello-world/</id>
-    <published>2016-08-06T18:29:02.000Z</published>
-    <updated>2016-08-06T18:29:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
-    
-  </entry>
-  
-</feed>
+</div></article><div class="tags"><a href="/tags/github/">github</a></div><div class="paginator"><a href="/2016/08/07/hello-world/" class="next"><span>Next</span><i class="iconfont icon-right"></i></a></div><section id="comments"><div id="disqus_thread"></div></section><script type="text/javascript">(function() {
+var d = document, s = d.createElement('script');
+
+s.src = '//ahonn.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script></section><footer><div class="copyright"><p>&copy;2016<span class="heart"><i class="iconfont icon-heart"></i></span><span class="author">gzmviavia</span></p><p class="theme">Theme by <a href="https://github.com/ahonn/hexo-theme-even"> Even</a></p></div><label id="back2top"><i class="iconfont icon-up"></i></label></footer></div></body><script src="/js/zepto.min.js"></script><script src="/js/theme.js"></script></html>
