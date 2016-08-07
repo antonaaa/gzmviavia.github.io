@@ -1,28 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>gzmviavia</title>
-  <subtitle>this is a blog</subtitle>
-  <link href="/atom.xml" rel="self"/>
-  
-  <link href="http://yoursite.com/"/>
-  <updated>2016-08-07T03:07:28.000Z</updated>
-  <id>http://yoursite.com/</id>
-  
-  <author>
-    <name>gzmviavia</name>
-    
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>地址解析协议ARP</title>
-    <link href="http://yoursite.com/2016/08/07/%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90%E5%8D%8F%E8%AE%AEARP/"/>
-    <id>http://yoursite.com/2016/08/07/地址解析协议ARP/</id>
-    <published>2016-08-07T02:40:38.000Z</published>
-    <updated>2016-08-07T03:07:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="数据链路层的作用"><a href="#数据链路层的作用" class="headerlink" title="数据链路层的作用"></a>数据链路层的作用</h2><hr>
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="description" content="this is a blog"><meta name="viewport" content="width=device-width, initial-scale=1"><title>地址解析协议ARP · gzmviavia</title><link rel="short icon" href="/favicon.ico"><!-- font--><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto Mono"><!-- icon--><link rel="stylesheet" href="/fonts/iconfont/iconfont.css"><!-- theme style--><link rel="stylesheet" href="/css/style.css"><!-- baidu analytics--><script type="text/javascript">var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9e0cbea7d3319c6c94c71dfb93c151b8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><!-- google analytics--><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-74273646-1', 'auto');
+ga('send', 'pageview');</script></head><body><div id="main"><header><a href="/." class="logo">gzmviavia</a><ul class="nav"><li class="nav-link"><a href="/" target="_self">Home</a></li><li class="nav-link"><a href="/archives/" target="_self">Archives</a></li><li class="nav-link"><a href="/categories/" target="_self">Categories</a></li><li class="nav-link"><a href="/tags/" target="_self">Tags</a></li><li class="nav-link"><a href="/about/" target="_self">About</a></li></ul></header><section id="container"><article class="post"><h1 class="post-title">地址解析协议ARP</h1><span class="post-time">Aug 7, 2016</span><div id="sidebar" class="post-sidebar"><h3 class="heading">Directory</h3><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据链路层的作用"><span class="toc-text">数据链路层的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP协议的报文格式与工作原理"><span class="toc-text">ARP协议的报文格式与工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么时候会使用arp请求协议"><span class="toc-text">什么时候会使用arp请求协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP欺骗和中间人攻击"><span class="toc-text">ARP欺骗和中间人攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-伪造主机："><span class="toc-text">1. 伪造主机：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-伪造网关"><span class="toc-text">2. 伪造网关:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-中间人攻击（伪造主机-伪造网关）"><span class="toc-text">3. 中间人攻击（伪造主机+伪造网关）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP欺骗只能发生在局域网里面吗"><span class="toc-text">ARP欺骗只能发生在局域网里面吗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP欺骗解决方案"><span class="toc-text">ARP欺骗解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP攻击软件"><span class="toc-text">ARP攻击软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></div><div class="post-content"><h2 id="数据链路层的作用"><a href="#数据链路层的作用" class="headerlink" title="数据链路层的作用"></a>数据链路层的作用</h2><hr>
 <p>数据链路层有三个作用</p>
 <ol>
 <li>为上层的IP模块发送和接收IP数据包。</li>
@@ -119,72 +108,12 @@
 <ul>
 <li><a href="http://www.cnblogs.com/duanv/p/4589625.html" target="_blank" rel="external">ARP协议抓包之帧长度和Gratuitous ARP的问题</a></li>
 </ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;数据链路层的作用&quot;&gt;&lt;a href=&quot;#数据链路层的作用&quot; class=&quot;headerlink&quot; title=&quot;数据链路层的作用&quot;&gt;&lt;/a&gt;数据链路层的作用&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;数据链路层有三个作用&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;为上层的IP模块发送和接收IP数据
-    
-    </summary>
-    
-      <category term="计算机网络" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="ARP" scheme="http://yoursite.com/tags/ARP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo + github 搭建博客</title>
-    <link href="http://yoursite.com/2016/08/07/hexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://yoursite.com/2016/08/07/hexo-github搭建博客/</id>
-    <published>2016-08-07T00:51:49.000Z</published>
-    <updated>2016-08-07T02:48:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>hexo是一个基于node.js的静态博客程序，你可以使用markdown语言来编写你的博客，你可以使用hexo提供的命令将其转换成生成静态网页，hexo会根据主题模板自动将你的文章转为网页。</p>
-</blockquote>
-<h2 id="hexo安装和发布流程"><a href="#hexo安装和发布流程" class="headerlink" title="hexo安装和发布流程"></a>hexo安装和发布流程</h2><p><img src="http://obil5saf9.bkt.clouddn.com/20160808hexo_flow" alt="Alt hexo安装和发布流程图"></p>
-<h3 id="1-下载Git"><a href="#1-下载Git" class="headerlink" title="1.下载Git"></a>1.下载Git</h3><hr>
-<p>我的电脑是osx系统，所以使用brew这个包管理工具，如果是linux系统可以使用apt-get包管理工具。</p>
-<p>osx系统使用以下命令下载git<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo brew install git</div></pre></td></tr></table></figure></p>
-<p>linux系统使用以下命令下载git<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure></p>
-<h3 id="2-下载node-js"><a href="#2-下载node-js" class="headerlink" title="2.下载node.js"></a>2.下载node.js</h3><hr>
-<p>hexo是使用node.js编写的，所以你要安装node.js，hexo才能够正常运行。</p>
-<p>osx系统使用以下命令下载node.js<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo brew install nodejs</div></pre></td></tr></table></figure></p>
-<p>linux系统使用以下命令下载node.js<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install nodejs</div></pre></td></tr></table></figure></p>
-<h3 id="3-下载hexo"><a href="#3-下载hexo" class="headerlink" title="3.下载hexo"></a>3.下载hexo</h3><hr>
-<h4 id="1-安装hexo"><a href="#1-安装hexo" class="headerlink" title="1.安装hexo"></a>1.安装hexo</h4><p>使用以下命令安装hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g hexo</div></pre></td></tr></table></figure></p>
-<p>使用以下命令生成博客的工作目录，以后所有的操作都会在该目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo hexo init blog</div><div class="line"><span class="built_in">cd</span> blog <span class="comment">#进入该目录，以后的所有命令都在该目录下执行</span></div></pre></td></tr></table></figure></p>
-<p>使用以下命令安装依赖项，会在blog目录中安装node_modules<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install</div></pre></td></tr></table></figure></p>
-<h4 id="2-使用hexo"><a href="#2-使用hexo" class="headerlink" title="2.使用hexo"></a>2.使用hexo</h4><p>上面已经完成了hexo的搭建了，接下来只要使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g</div></pre></td></tr></table></figure></p>
-<p>生成静态文件，然后使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s</div></pre></td></tr></table></figure></p>
-<p>开启服务器，那么就可以通过<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 来访问我们自己的博客了。<br>hexo常用的命令有：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hexo g <span class="comment">#生成静态文件</span></div><div class="line">hexo s <span class="comment">#开启服务器</span></div><div class="line">hexo d <span class="comment">#将.deploy_git部署到你的github</span></div><div class="line">hexo new <span class="string">"postname"</span> <span class="comment">#新建文章</span></div><div class="line">hexo new page <span class="string">"pagename"</span> <span class="comment">#新建页面</span></div></pre></td></tr></table></figure></p>
-<h3 id="4-部署到github上"><a href="#4-部署到github上" class="headerlink" title="4.部署到github上"></a>4.部署到github上</h3><hr>
-<p>使用以下命令生成SSH Keys<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C<span class="string">"这里是你申请Github账号时的邮箱"</span></div></pre></td></tr></table></figure></p>
-<p>将~/.ssh/id_rsa.pub中的公钥添加到github</p>
-<p>配置git<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name<span class="string">"这里是你申请Github账号时的name"</span></div><div class="line">git config --global user.email<span class="string">"这里是你申请Github账号时的邮箱"</span></div></pre></td></tr></table></figure></p>
-<p>使用以下命令查看是否能够SSH成功github<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-T git@github.com</div></pre></td></tr></table></figure></p>
-<p>修改博客根目录下的_config.yml文件，修改文件的最后为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repo: https://github.com/gzmviavia/gzmviavia.github.io.git <span class="comment">#这里要修改成你自己的参考名</span></div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
-<p>最后使用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d</div></pre></td></tr></table></figure></p>
-<p>就可以将项目部署上github上了。<br>其实部署的只是由hexo生成的静态页面，我们书写的markdown还是在本地存储的，所以不要以为你部署到github上你就不用备份本地的博客了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;hexo是一个基于node.js的静态博客程序，你可以使用markdown语言来编写你的博客，你可以使用hexo提供的命令将其转换成生成静态网页，hexo会根据主题模板自动将你的文章转为网页。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;h
-    
-    </summary>
-    
-    
-      <category term="github" scheme="http://yoursite.com/tags/github/"/>
-    
-  </entry>
-  
-</feed>
+</div></article><div class="tags"><a href="/tags/ARP/">ARP</a></div><div class="paginator"><a href="/2016/08/07/hexo-github搭建博客/" class="next"><span>Next</span><i class="iconfont icon-right"></i></a></div><section id="comments"><div id="disqus_thread"></div></section><script type="text/javascript">(function() {
+var d = document, s = d.createElement('script');
+
+s.src = '//ahonn.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script></section><footer><div class="copyright"><p>&copy;2016<span class="heart"><i class="iconfont icon-heart"></i></span><span class="author">gzmviavia</span></p><p class="theme">Theme by <a href="https://github.com/ahonn/hexo-theme-even"> Even</a></p></div><label id="back2top"><i class="iconfont icon-up"></i></label></footer></div></body><script src="/js/zepto.min.js"></script><script src="/js/theme.js"></script></html>
