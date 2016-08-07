@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-08-07T03:07:28.000Z</updated>
+  <updated>2016-08-07T04:49:17.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,15 +20,15 @@
     <link href="http://yoursite.com/2016/08/07/%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90%E5%8D%8F%E8%AE%AEARP/"/>
     <id>http://yoursite.com/2016/08/07/地址解析协议ARP/</id>
     <published>2016-08-07T02:40:38.000Z</published>
-    <updated>2016-08-07T03:07:28.000Z</updated>
+    <updated>2016-08-07T04:49:17.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="数据链路层的作用"><a href="#数据链路层的作用" class="headerlink" title="数据链路层的作用"></a>数据链路层的作用</h2><hr>
-<p>数据链路层有三个作用</p>
+    <content type="html"><![CDATA[<h2 id="数据链路层的作用"><a href="#数据链路层的作用" class="headerlink" title="数据链路层的作用"></a>数据链路层的作用</h2><p>数据链路层有三个作用</p>
 <ol>
 <li>为上层的IP模块发送和接收IP数据包。</li>
 <li>为ARP模块发送ARP请求和接收ARP应答。</li>
 <li>为RARP模块发送RARP请求和接收RARP应答。</li>
 </ol>
+<a id="more"></a>
 <p><img src="http://obil5saf9.bkt.clouddn.com/arp1.png" alt="Alt 数据链路层首部"></p>
 <p>上图是以太网的帧格式。</p>
 <p>目的地址：目标主机的MAC地址。</p>
@@ -41,8 +41,7 @@
 <p>如果该帧的MAC地址是ff:ff:ff:ff:ff:ff，表明这是一个广播帧，那么交换机就向所有的端口（除了接收到该帧的端口之外）转发该帧。</p>
 <p>如果该帧不是一个广播帧，那么就交换机就查找转发表，看该MAC地址对应了哪个端口，然后就从相应的端口转发出去。</p>
 <p>如果转发表中找不到该MAC地址对应的端口该怎么办？也象处理广播帧一样转发该帧。</p>
-<h2 id="ARP协议的报文格式与工作原理"><a href="#ARP协议的报文格式与工作原理" class="headerlink" title="ARP协议的报文格式与工作原理"></a>ARP协议的报文格式与工作原理</h2><hr>
-<p>ARP协议是属于数据链路层的协议，所以说它是一个局域网协议，也就是说它只能在局域网内部运行。</p>
+<h2 id="ARP协议的报文格式与工作原理"><a href="#ARP协议的报文格式与工作原理" class="headerlink" title="ARP协议的报文格式与工作原理"></a>ARP协议的报文格式与工作原理</h2><p>ARP协议是属于数据链路层的协议，所以说它是一个局域网协议，也就是说它只能在局域网内部运行。</p>
 <p><img src="http://obil5saf9.bkt.clouddn.com/arp2.png" alt="Alt 数据链路层首部"></p>
 <p>硬件类型：硬件地址的类型，如果是以太网，则该字段为1。</p>
 <p>协议类型：一般为0x0080，表示ipv4协议。</p>
@@ -62,15 +61,13 @@
 <p>所以该局域网内的所有主机都会收到该帧，之后每个主机会使用ARP协议解析该帧，然后会根据该帧中的目标主机的IP地址判断该帧是不是发送自己的，如果不是发送给自己的，那么就丢弃该帧；如果是发送给自己的，那么就会发送一个ARP应答帧。</p>
 <p>目的主机发送了一个应答帧给我，我的电脑收到该ARP应答帧之后就会提取出其中的Sender Mac address 和Sender IP address，并将两者的对应关系写入本机的ARP缓存中，当然了该缓存中的每条记录都有一个过期时间的，一般为20分钟。</p>
 <p><img src="http://obil5saf9.bkt.clouddn.com/arp5.png" alt="Alt 数据链路层首部"></p>
-<h2 id="什么时候会使用arp请求协议"><a href="#什么时候会使用arp请求协议" class="headerlink" title="什么时候会使用arp请求协议"></a>什么时候会使用arp请求协议</h2><hr>
-<p>当主机A需要知道自己同属于一个局域网的某个IP地址所对应的MAC地址时，就会去ARP缓存中查找IP地址对应的MAC地址，</p>
+<h2 id="什么时候会使用arp请求协议"><a href="#什么时候会使用arp请求协议" class="headerlink" title="什么时候会使用arp请求协议"></a>什么时候会使用arp请求协议</h2><p>当主机A需要知道自己同属于一个局域网的某个IP地址所对应的MAC地址时，就会去ARP缓存中查找IP地址对应的MAC地址，</p>
 <p>如果不存在，那么就会发出一个ARP请求。</p>
 <p>主机A要和主机B进行通信，主机A会判断主机B是不是和自己在同一个网段。</p>
 <p>如果是和自己在同一个网段，那么帧首部的目的地址就会填主机B的MAC地址，那么交换机收到该帧之后就会发给主机B。</p>
 <p>如果不是和自己在同一个网段，那么就属于跨子网通信，需要路由器的帮助，那么帧的首部的目的地址就要填网关的MAC地址（路由器就是网关的一种），交换机收到该帧之后就会将该帧转发给路由器，路由器收到该帧后会解封该帧，变成IP数据报，</p>
 <p>然后查看目的IP地址发现该IP数据报是发往另一个网段的，就会查看路由表，从其它端口转发出去。</p>
-<h2 id="ARP欺骗和中间人攻击"><a href="#ARP欺骗和中间人攻击" class="headerlink" title="ARP欺骗和中间人攻击"></a>ARP欺骗和中间人攻击</h2><hr>
-<p>ARP的设计是有缺陷的，即主机收到一个ARP应答帧之后，会从中取出对方主机的IP地址和MAC地址，然后将其对应关系写入到ARP缓存中。没错，主机不会关心自己到底有没有发送过该ARP请求包。</p>
+<h2 id="ARP欺骗和中间人攻击"><a href="#ARP欺骗和中间人攻击" class="headerlink" title="ARP欺骗和中间人攻击"></a>ARP欺骗和中间人攻击</h2><p>ARP的设计是有缺陷的，即主机收到一个ARP应答帧之后，会从中取出对方主机的IP地址和MAC地址，然后将其对应关系写入到ARP缓存中。没错，主机不会关心自己到底有没有发送过该ARP请求包。</p>
 <p>所以黑客可以通过发送伪造的ARP应答帧来进行攻击，ARP欺骗一下有三种方式：</p>
 <h3 id="1-伪造主机："><a href="#1-伪造主机：" class="headerlink" title="1. 伪造主机："></a>1. 伪造主机：</h3><p>主机A的IP地址是192.168.1.2，MAC地址是AA:AA:AA:AA:AA:AA</p>
 <p>主机B的IP地址是192.168.1.3，MAC地址是BB:BB:BB:BB:BB:BB</p>
@@ -101,15 +98,11 @@
 <p>osx系统命令行开启路由转发功能sysctl -w net.inet.ip.forwarding=1</p>
 <p>osx系统命令行关闭路由转发功能sysctl -w net.inet.ip.forwarding=0</p>
 <p>注：必须源源不断地发送伪造的ARP包，因为有的主机（具体看操作系统实现）会定时向网关发送ARP请求，这就会刷新网关和主机自身的ARP缓存，所以ARP攻击必须发的比它们还多，从而掩盖掉它们。</p>
-<h2 id="ARP欺骗只能发生在局域网里面吗"><a href="#ARP欺骗只能发生在局域网里面吗" class="headerlink" title="ARP欺骗只能发生在局域网里面吗"></a>ARP欺骗只能发生在局域网里面吗</h2><hr>
-<p>如果不考虑代理ARP的话，那么ARP只能发生在局域网里面，因为ARP广播是不能跨越路由器的。</p>
+<h2 id="ARP欺骗只能发生在局域网里面吗"><a href="#ARP欺骗只能发生在局域网里面吗" class="headerlink" title="ARP欺骗只能发生在局域网里面吗"></a>ARP欺骗只能发生在局域网里面吗</h2><p>如果不考虑代理ARP的话，那么ARP只能发生在局域网里面，因为ARP广播是不能跨越路由器的。</p>
 <p>所以说，如果你要使用ARP攻击某台主机，那么你必须和它在同一个局域网内，这样你就能截获它发往外网的数据，也能截获外网发给它的数据。</p>
-<h2 id="ARP欺骗解决方案"><a href="#ARP欺骗解决方案" class="headerlink" title="ARP欺骗解决方案"></a>ARP欺骗解决方案</h2><hr>
-<p>1、在网关路由器中绑定所有PC机和IP地址和MAC地址。 这样就能防止别人伪造成主机了。<br>2、在PC机上绑定网关路由器内网口IP地址和MAC地址。  这样就能防止别人伪造成网关了。</p>
-<h2 id="ARP攻击软件"><a href="#ARP攻击软件" class="headerlink" title="ARP攻击软件"></a>ARP攻击软件</h2><hr>
-<p><a href="http://www.pc6.com/mac/129593.html" target="_blank" rel="external">Debookee</a><br>该攻击软件的原理:<a href="http://blog.csdn.net/icodeyou/article/details/49556627" target="_blank" rel="external">mac工具–通过 arp 欺骗抓取局域网内设备数据包</a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><hr>
-<ul>
+<h2 id="ARP欺骗解决方案"><a href="#ARP欺骗解决方案" class="headerlink" title="ARP欺骗解决方案"></a>ARP欺骗解决方案</h2><p>1、在网关路由器中绑定所有PC机和IP地址和MAC地址。 这样就能防止别人伪造成主机了。<br>2、在PC机上绑定网关路由器内网口IP地址和MAC地址。  这样就能防止别人伪造成网关了。</p>
+<h2 id="ARP攻击软件"><a href="#ARP攻击软件" class="headerlink" title="ARP攻击软件"></a>ARP攻击软件</h2><p><a href="http://www.pc6.com/mac/129593.html" target="_blank" rel="external">Debookee</a><br>该攻击软件的原理:<a href="http://blog.csdn.net/icodeyou/article/details/49556627" target="_blank" rel="external">mac工具–通过 arp 欺骗抓取局域网内设备数据包</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="http://www.2cto.com/Article/201509/441866.html" target="_blank" rel="external">记一次实验室局域网的ARP欺骗</a></li>
 <li><a href="http://blog.csdn.net/qq_15437667/article/details/50743182" target="_blank" rel="external">苹果电脑macbook/mac_os开启路由转发功能</a></li>
 </ul>
@@ -123,10 +116,12 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;数据链路层的作用&quot;&gt;&lt;a href=&quot;#数据链路层的作用&quot; class=&quot;headerlink&quot; title=&quot;数据链路层的作用&quot;&gt;&lt;/a&gt;数据链路层的作用&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;数据链路层有三个作用&lt;/p&gt;
+      &lt;h2 id=&quot;数据链路层的作用&quot;&gt;&lt;a href=&quot;#数据链路层的作用&quot; class=&quot;headerlink&quot; title=&quot;数据链路层的作用&quot;&gt;&lt;/a&gt;数据链路层的作用&lt;/h2&gt;&lt;p&gt;数据链路层有三个作用&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;为上层的IP模块发送和接收IP数据
+&lt;li&gt;为上层的IP模块发送和接收IP数据包。&lt;/li&gt;
+&lt;li&gt;为ARP模块发送ARP请求和接收ARP应答。&lt;/li&gt;
+&lt;li&gt;为RARP模块发送RARP请求和接收RARP应答。&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     
@@ -142,11 +137,12 @@
     <link href="http://yoursite.com/2016/08/07/hexo-github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>http://yoursite.com/2016/08/07/hexo-github搭建博客/</id>
     <published>2016-08-07T00:51:49.000Z</published>
-    <updated>2016-08-07T02:48:54.000Z</updated>
+    <updated>2016-08-07T04:51:43.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>hexo是一个基于node.js的静态博客程序，你可以使用markdown语言来编写你的博客，你可以使用hexo提供的命令将其转换成生成静态网页，hexo会根据主题模板自动将你的文章转为网页。</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="hexo安装和发布流程"><a href="#hexo安装和发布流程" class="headerlink" title="hexo安装和发布流程"></a>hexo安装和发布流程</h2><p><img src="http://obil5saf9.bkt.clouddn.com/20160808hexo_flow" alt="Alt hexo安装和发布流程图"></p>
 <h3 id="1-下载Git"><a href="#1-下载Git" class="headerlink" title="1.下载Git"></a>1.下载Git</h3><hr>
 <p>我的电脑是osx系统，所以使用brew这个包管理工具，如果是linux系统可以使用apt-get包管理工具。</p>
@@ -178,12 +174,13 @@
       &lt;blockquote&gt;
 &lt;p&gt;hexo是一个基于node.js的静态博客程序，你可以使用markdown语言来编写你的博客，你可以使用hexo提供的命令将其转换成生成静态网页，hexo会根据主题模板自动将你的文章转为网页。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;h
     
     </summary>
     
     
       <category term="github" scheme="http://yoursite.com/tags/github/"/>
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
   </entry>
   

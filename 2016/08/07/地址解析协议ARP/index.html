@@ -11,13 +11,13 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-74273646-1', 'auto');
-ga('send', 'pageview');</script></head><body><div id="main"><header><a href="/." class="logo">gzmviavia</a><ul class="nav"><li class="nav-link"><a href="/" target="_self">Home</a></li><li class="nav-link"><a href="/archives/" target="_self">Archives</a></li><li class="nav-link"><a href="/categories/" target="_self">Categories</a></li><li class="nav-link"><a href="/tags/" target="_self">Tags</a></li><li class="nav-link"><a href="/about/" target="_self">About</a></li></ul></header><section id="container"><article class="post"><h1 class="post-title">地址解析协议ARP</h1><span class="post-time">Aug 7, 2016</span><div id="sidebar" class="post-sidebar"><h3 class="heading">Directory</h3><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据链路层的作用"><span class="toc-text">数据链路层的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP协议的报文格式与工作原理"><span class="toc-text">ARP协议的报文格式与工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么时候会使用arp请求协议"><span class="toc-text">什么时候会使用arp请求协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP欺骗和中间人攻击"><span class="toc-text">ARP欺骗和中间人攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-伪造主机："><span class="toc-text">1. 伪造主机：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-伪造网关"><span class="toc-text">2. 伪造网关:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-中间人攻击（伪造主机-伪造网关）"><span class="toc-text">3. 中间人攻击（伪造主机+伪造网关）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP欺骗只能发生在局域网里面吗"><span class="toc-text">ARP欺骗只能发生在局域网里面吗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP欺骗解决方案"><span class="toc-text">ARP欺骗解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP攻击软件"><span class="toc-text">ARP攻击软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></div><div class="post-content"><h2 id="数据链路层的作用"><a href="#数据链路层的作用" class="headerlink" title="数据链路层的作用"></a>数据链路层的作用</h2><hr>
-<p>数据链路层有三个作用</p>
+ga('send', 'pageview');</script></head><body><div id="main"><header><a href="/." class="logo">gzmviavia</a><ul class="nav"><li class="nav-link"><a href="/" target="_self">Accueil</a></li><li class="nav-link"><a href="/archives/" target="_self">Archives</a></li><li class="nav-link"><a href="/categories/" target="_self">Catégories</a></li><li class="nav-link"><a href="/tags/" target="_self">Tags</a></li><li class="nav-link"><a href="/about/" target="_self">À propos</a></li></ul></header><section id="container"><article class="post"><h1 class="post-title">地址解析协议ARP</h1><span class="post-time">Aug 7, 2016</span><div id="sidebar" class="post-sidebar"><h3 class="heading">Sommaire</h3><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据链路层的作用"><span class="toc-text">数据链路层的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP协议的报文格式与工作原理"><span class="toc-text">ARP协议的报文格式与工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么时候会使用arp请求协议"><span class="toc-text">什么时候会使用arp请求协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP欺骗和中间人攻击"><span class="toc-text">ARP欺骗和中间人攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-伪造主机："><span class="toc-text">1. 伪造主机：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-伪造网关"><span class="toc-text">2. 伪造网关:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-中间人攻击（伪造主机-伪造网关）"><span class="toc-text">3. 中间人攻击（伪造主机+伪造网关）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP欺骗只能发生在局域网里面吗"><span class="toc-text">ARP欺骗只能发生在局域网里面吗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP欺骗解决方案"><span class="toc-text">ARP欺骗解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP攻击软件"><span class="toc-text">ARP攻击软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></div><div class="post-content"><h2 id="数据链路层的作用"><a href="#数据链路层的作用" class="headerlink" title="数据链路层的作用"></a>数据链路层的作用</h2><p>数据链路层有三个作用</p>
 <ol>
 <li>为上层的IP模块发送和接收IP数据包。</li>
 <li>为ARP模块发送ARP请求和接收ARP应答。</li>
 <li>为RARP模块发送RARP请求和接收RARP应答。</li>
 </ol>
+<a id="more"></a>
 <p><img src="http://obil5saf9.bkt.clouddn.com/arp1.png" alt="Alt 数据链路层首部"></p>
 <p>上图是以太网的帧格式。</p>
 <p>目的地址：目标主机的MAC地址。</p>
@@ -30,8 +30,7 @@ ga('send', 'pageview');</script></head><body><div id="main"><header><a href="/."
 <p>如果该帧的MAC地址是ff:ff:ff:ff:ff:ff，表明这是一个广播帧，那么交换机就向所有的端口（除了接收到该帧的端口之外）转发该帧。</p>
 <p>如果该帧不是一个广播帧，那么就交换机就查找转发表，看该MAC地址对应了哪个端口，然后就从相应的端口转发出去。</p>
 <p>如果转发表中找不到该MAC地址对应的端口该怎么办？也象处理广播帧一样转发该帧。</p>
-<h2 id="ARP协议的报文格式与工作原理"><a href="#ARP协议的报文格式与工作原理" class="headerlink" title="ARP协议的报文格式与工作原理"></a>ARP协议的报文格式与工作原理</h2><hr>
-<p>ARP协议是属于数据链路层的协议，所以说它是一个局域网协议，也就是说它只能在局域网内部运行。</p>
+<h2 id="ARP协议的报文格式与工作原理"><a href="#ARP协议的报文格式与工作原理" class="headerlink" title="ARP协议的报文格式与工作原理"></a>ARP协议的报文格式与工作原理</h2><p>ARP协议是属于数据链路层的协议，所以说它是一个局域网协议，也就是说它只能在局域网内部运行。</p>
 <p><img src="http://obil5saf9.bkt.clouddn.com/arp2.png" alt="Alt 数据链路层首部"></p>
 <p>硬件类型：硬件地址的类型，如果是以太网，则该字段为1。</p>
 <p>协议类型：一般为0x0080，表示ipv4协议。</p>
@@ -51,15 +50,13 @@ ga('send', 'pageview');</script></head><body><div id="main"><header><a href="/."
 <p>所以该局域网内的所有主机都会收到该帧，之后每个主机会使用ARP协议解析该帧，然后会根据该帧中的目标主机的IP地址判断该帧是不是发送自己的，如果不是发送给自己的，那么就丢弃该帧；如果是发送给自己的，那么就会发送一个ARP应答帧。</p>
 <p>目的主机发送了一个应答帧给我，我的电脑收到该ARP应答帧之后就会提取出其中的Sender Mac address 和Sender IP address，并将两者的对应关系写入本机的ARP缓存中，当然了该缓存中的每条记录都有一个过期时间的，一般为20分钟。</p>
 <p><img src="http://obil5saf9.bkt.clouddn.com/arp5.png" alt="Alt 数据链路层首部"></p>
-<h2 id="什么时候会使用arp请求协议"><a href="#什么时候会使用arp请求协议" class="headerlink" title="什么时候会使用arp请求协议"></a>什么时候会使用arp请求协议</h2><hr>
-<p>当主机A需要知道自己同属于一个局域网的某个IP地址所对应的MAC地址时，就会去ARP缓存中查找IP地址对应的MAC地址，</p>
+<h2 id="什么时候会使用arp请求协议"><a href="#什么时候会使用arp请求协议" class="headerlink" title="什么时候会使用arp请求协议"></a>什么时候会使用arp请求协议</h2><p>当主机A需要知道自己同属于一个局域网的某个IP地址所对应的MAC地址时，就会去ARP缓存中查找IP地址对应的MAC地址，</p>
 <p>如果不存在，那么就会发出一个ARP请求。</p>
 <p>主机A要和主机B进行通信，主机A会判断主机B是不是和自己在同一个网段。</p>
 <p>如果是和自己在同一个网段，那么帧首部的目的地址就会填主机B的MAC地址，那么交换机收到该帧之后就会发给主机B。</p>
 <p>如果不是和自己在同一个网段，那么就属于跨子网通信，需要路由器的帮助，那么帧的首部的目的地址就要填网关的MAC地址（路由器就是网关的一种），交换机收到该帧之后就会将该帧转发给路由器，路由器收到该帧后会解封该帧，变成IP数据报，</p>
 <p>然后查看目的IP地址发现该IP数据报是发往另一个网段的，就会查看路由表，从其它端口转发出去。</p>
-<h2 id="ARP欺骗和中间人攻击"><a href="#ARP欺骗和中间人攻击" class="headerlink" title="ARP欺骗和中间人攻击"></a>ARP欺骗和中间人攻击</h2><hr>
-<p>ARP的设计是有缺陷的，即主机收到一个ARP应答帧之后，会从中取出对方主机的IP地址和MAC地址，然后将其对应关系写入到ARP缓存中。没错，主机不会关心自己到底有没有发送过该ARP请求包。</p>
+<h2 id="ARP欺骗和中间人攻击"><a href="#ARP欺骗和中间人攻击" class="headerlink" title="ARP欺骗和中间人攻击"></a>ARP欺骗和中间人攻击</h2><p>ARP的设计是有缺陷的，即主机收到一个ARP应答帧之后，会从中取出对方主机的IP地址和MAC地址，然后将其对应关系写入到ARP缓存中。没错，主机不会关心自己到底有没有发送过该ARP请求包。</p>
 <p>所以黑客可以通过发送伪造的ARP应答帧来进行攻击，ARP欺骗一下有三种方式：</p>
 <h3 id="1-伪造主机："><a href="#1-伪造主机：" class="headerlink" title="1. 伪造主机："></a>1. 伪造主机：</h3><p>主机A的IP地址是192.168.1.2，MAC地址是AA:AA:AA:AA:AA:AA</p>
 <p>主机B的IP地址是192.168.1.3，MAC地址是BB:BB:BB:BB:BB:BB</p>
@@ -90,15 +87,11 @@ ga('send', 'pageview');</script></head><body><div id="main"><header><a href="/."
 <p>osx系统命令行开启路由转发功能sysctl -w net.inet.ip.forwarding=1</p>
 <p>osx系统命令行关闭路由转发功能sysctl -w net.inet.ip.forwarding=0</p>
 <p>注：必须源源不断地发送伪造的ARP包，因为有的主机（具体看操作系统实现）会定时向网关发送ARP请求，这就会刷新网关和主机自身的ARP缓存，所以ARP攻击必须发的比它们还多，从而掩盖掉它们。</p>
-<h2 id="ARP欺骗只能发生在局域网里面吗"><a href="#ARP欺骗只能发生在局域网里面吗" class="headerlink" title="ARP欺骗只能发生在局域网里面吗"></a>ARP欺骗只能发生在局域网里面吗</h2><hr>
-<p>如果不考虑代理ARP的话，那么ARP只能发生在局域网里面，因为ARP广播是不能跨越路由器的。</p>
+<h2 id="ARP欺骗只能发生在局域网里面吗"><a href="#ARP欺骗只能发生在局域网里面吗" class="headerlink" title="ARP欺骗只能发生在局域网里面吗"></a>ARP欺骗只能发生在局域网里面吗</h2><p>如果不考虑代理ARP的话，那么ARP只能发生在局域网里面，因为ARP广播是不能跨越路由器的。</p>
 <p>所以说，如果你要使用ARP攻击某台主机，那么你必须和它在同一个局域网内，这样你就能截获它发往外网的数据，也能截获外网发给它的数据。</p>
-<h2 id="ARP欺骗解决方案"><a href="#ARP欺骗解决方案" class="headerlink" title="ARP欺骗解决方案"></a>ARP欺骗解决方案</h2><hr>
-<p>1、在网关路由器中绑定所有PC机和IP地址和MAC地址。 这样就能防止别人伪造成主机了。<br>2、在PC机上绑定网关路由器内网口IP地址和MAC地址。  这样就能防止别人伪造成网关了。</p>
-<h2 id="ARP攻击软件"><a href="#ARP攻击软件" class="headerlink" title="ARP攻击软件"></a>ARP攻击软件</h2><hr>
-<p><a href="http://www.pc6.com/mac/129593.html" target="_blank" rel="external">Debookee</a><br>该攻击软件的原理:<a href="http://blog.csdn.net/icodeyou/article/details/49556627" target="_blank" rel="external">mac工具–通过 arp 欺骗抓取局域网内设备数据包</a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><hr>
-<ul>
+<h2 id="ARP欺骗解决方案"><a href="#ARP欺骗解决方案" class="headerlink" title="ARP欺骗解决方案"></a>ARP欺骗解决方案</h2><p>1、在网关路由器中绑定所有PC机和IP地址和MAC地址。 这样就能防止别人伪造成主机了。<br>2、在PC机上绑定网关路由器内网口IP地址和MAC地址。  这样就能防止别人伪造成网关了。</p>
+<h2 id="ARP攻击软件"><a href="#ARP攻击软件" class="headerlink" title="ARP攻击软件"></a>ARP攻击软件</h2><p><a href="http://www.pc6.com/mac/129593.html" target="_blank" rel="external">Debookee</a><br>该攻击软件的原理:<a href="http://blog.csdn.net/icodeyou/article/details/49556627" target="_blank" rel="external">mac工具–通过 arp 欺骗抓取局域网内设备数据包</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="http://www.2cto.com/Article/201509/441866.html" target="_blank" rel="external">记一次实验室局域网的ARP欺骗</a></li>
 <li><a href="http://blog.csdn.net/qq_15437667/article/details/50743182" target="_blank" rel="external">苹果电脑macbook/mac_os开启路由转发功能</a></li>
 </ul>
@@ -108,7 +101,7 @@ ga('send', 'pageview');</script></head><body><div id="main"><header><a href="/."
 <ul>
 <li><a href="http://www.cnblogs.com/duanv/p/4589625.html" target="_blank" rel="external">ARP协议抓包之帧长度和Gratuitous ARP的问题</a></li>
 </ul>
-</div></article><div class="tags"><a href="/tags/ARP/">ARP</a></div><div class="paginator"><a href="/2016/08/07/hexo-github搭建博客/" class="next"><span>Next</span><i class="iconfont icon-right"></i></a></div><section id="comments"><div id="disqus_thread"></div></section><script type="text/javascript">(function() {
+</div></article><div class="tags"><a href="/tags/ARP/">ARP</a></div><div class="paginator"><a href="/2016/08/07/hexo-github搭建博客/" class="next"><span>Suivant</span><i class="iconfont icon-right"></i></a></div><section id="comments"><div id="disqus_thread"></div></section><script type="text/javascript">(function() {
 var d = document, s = d.createElement('script');
 
 s.src = '//ahonn.disqus.com/embed.js';
