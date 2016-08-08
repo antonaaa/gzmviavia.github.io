@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-08-07T23:46:28.000Z</updated>
+  <updated>2016-08-08T16:02:36.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UDP首部检验和的计算</title>
+    <link href="http://yoursite.com/2016/08/08/udp-header-check-sum/"/>
+    <id>http://yoursite.com/2016/08/08/udp-header-check-sum/</id>
+    <published>2016-08-08T15:02:38.000Z</published>
+    <updated>2016-08-08T16:02:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="UDP&#x9996;&#x90E8;&#x68C0;&#x9A8C;&#x548C;&#x7684;&#x8BA1;&#x7B97;&#x89C4;&#x5219;"><a href="#UDP&#x9996;&#x90E8;&#x68C0;&#x9A8C;&#x548C;&#x7684;&#x8BA1;&#x7B97;&#x89C4;&#x5219;" class="headerlink" title="UDP&#x9996;&#x90E8;&#x68C0;&#x9A8C;&#x548C;&#x7684;&#x8BA1;&#x7B97;&#x89C4;&#x5219;"></a>UDP&#x9996;&#x90E8;&#x68C0;&#x9A8C;&#x548C;&#x7684;&#x8BA1;&#x7B97;&#x89C4;&#x5219;</h2><blockquote>
+<p>ARP&#x534F;&#x8BAE;&#xFF0C;IP&#x534F;&#x8BAE;&#x9996;&#x90E8;&#x7684;&#x68C0;&#x9A8C;&#x548C;&#x8BA1;&#x7B97;&#x65F6;&#x90FD;&#x662F;&#x5148;&#x5C06;<code>checksum</code>&#x5B57;&#x6BB5;&#x7F6E;&#x4E3A;0&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x9996;&#x90E8;&#x5B57;&#x6BB5;&#x8FDB;&#x884C;16&#x4F4D;&#x53CD;&#x7801;&#x6C42;&#x548C;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x8986;&#x76D6;&#x6570;&#x636E;&#x90E8;&#x5206;&#x3002;&#x800C;UDP&#x8BA1;&#x7B97;&#x68C0;&#x9A8C;&#x548C;&#x65F6;&#x4F1A;&#x5BF9;UDP&#x4F2A;&#x9996;&#x90E8;&#x3001;UDP&#x9996;&#x90E8;&#x3001;UDP&#x6570;&#x636E;&#x90E8;&#x5206;&#x90FD;&#x8FDB;&#x884C;16&#x4F4D;&#x53CD;&#x7801;&#x6C42;&#x548C;&#xFF0C;&#x7531;&#x4E8E;&#x6570;&#x636E;&#x90E8;&#x5206;&#x53EF;&#x80FD;&#x662F;&#x5947;&#x6570;&#x4F4D;&#xFF0C;&#x6240;&#x4EE5;&#x5982;&#x679C;&#x6570;&#x636E;&#x90E8;&#x5206;&#x4E3A;&#x5947;&#x6570;&#x4F4D;&#x65F6;&#xFF0C;&#x4E3A;&#x4E86;&#x8BA1;&#x7B97;&#x68C0;&#x9A8C;&#x548C;&#x4F1A;&#x5728;&#x6700;&#x540E;&#x589E;&#x52A0;&#x586B;&#x5145;&#x5B57;&#x8282;0&#xFF0C;&#x8FD9;&#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x8BA1;&#x7B97;&#x68C0;&#x9A8C;&#x548C;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x88AB;&#x53D1;&#x9001;&#x3002;</p>
+</blockquote>
+<pre><code>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x52A0;&#x4E0A;&#x4F2A;&#x9996;&#x90E8;&#x7136;&#x540E;&#x8BA1;&#x7B97;&#x68C0;&#x9A8C;&#x548C;&#x5462;&#xFF1F;
+</code></pre><a id="more"></a>
+<p>&#x6240;&#x9700;&#x8981;&#x8BA1;&#x7B97;&#x68C0;&#x9A8C;&#x548C;&#x7684;&#x5B57;&#x6BB5;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#x3002;</p>
+<p><img src="/2016/08/08/udp-header-check-sum/udp_check_sum_header.png" alt="UDP&#x9996;&#x90E8;&#x68C0;&#x9A8C;&#x548C;&#x5B57;&#x6BB5;"></p>
+<h2 id="&#x53D1;&#x9001;UDP&#x6570;&#x636E;&#x62A5;"><a href="#&#x53D1;&#x9001;UDP&#x6570;&#x636E;&#x62A5;" class="headerlink" title="&#x53D1;&#x9001;UDP&#x6570;&#x636E;&#x62A5;"></a>&#x53D1;&#x9001;UDP&#x6570;&#x636E;&#x62A5;</h2><p>&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x53D1;&#x9001;&#x4E00;&#x4E2A;UDP&#x6570;&#x636E;&#x5305;&#xFF0C;ip&#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;&#x53EF;&#x4EE5;&#x968F;&#x4FBF;&#x586B;&#xFF0C;&#x53EA;&#x8981;&#x4E0D;&#x586B;&#x672C;&#x5730;&#x5730;&#x5740;&#x5C31;&#x597D;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x81EA;&#x5DF1;&#x5411;&#x81EA;&#x5DF1;&#x53D1;&#x7684;&#x6570;&#x636E;&#x662F;&#x4E0D;&#x4F1A;&#x7ECF;&#x8FC7;&#x7F51;&#x5361;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x6293;&#x4E0D;&#x5230;&#x5305;&#x3002;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python2.7</span></div><div class="line"><span class="comment">#coding:utf-8</span></div><div class="line"><span class="keyword">import</span> socket</div><div class="line"></div><div class="line">ip = <span class="string">&apos;12.34.56.78&apos;</span></div><div class="line">port = <span class="number">80</span></div><div class="line">addr = (ip, port)</div><div class="line"></div><div class="line">udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)</div><div class="line">udp_sock.sendto(<span class="string">&apos;dat&apos;</span>, addr) <span class="comment">#&#x7279;&#x610F;&#x53D1;&#x9001;&#x5947;&#x6570;&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x6570;&#x636E;</span></div></pre></td></tr></table></figure>
+<h2 id="&#x6293;&#x53D6;UDP&#x6570;&#x636E;&#x62A5;"><a href="#&#x6293;&#x53D6;UDP&#x6570;&#x636E;&#x62A5;" class="headerlink" title="&#x6293;&#x53D6;UDP&#x6570;&#x636E;&#x62A5;"></a>&#x6293;&#x53D6;UDP&#x6570;&#x636E;&#x62A5;</h2><p>&#x4F7F;&#x7528;wireshark&#x6293;&#x5230;&#x8BE5;UDP&#x62A5;&#xFF0C;&#x5305;&#x7684;&#x5177;&#x4F53;&#x6570;&#x636E;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="/2016/08/08/udp-header-check-sum/UDP_packet.png" alt=""></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;UDP&#x7684;&#x9996;&#x90E8;&#x68C0;&#x9A8C;&#x548C;&#x4E3A;<code>0x58dx</code></p>
+<h2 id="&#x8BA1;&#x7B97;&#x9996;&#x90E8;&#x68C0;&#x9A8C;&#x548C;"><a href="#&#x8BA1;&#x7B97;&#x9996;&#x90E8;&#x68C0;&#x9A8C;&#x548C;" class="headerlink" title="&#x8BA1;&#x7B97;&#x9996;&#x90E8;&#x68C0;&#x9A8C;&#x548C;"></a>&#x8BA1;&#x7B97;&#x9996;&#x90E8;&#x68C0;&#x9A8C;&#x548C;</h2><p>&#x4E3A;&#x4E86;&#x9A8C;&#x8BC1;UDP&#x9996;&#x90E8;&#x68C0;&#x9A8C;&#x7801;&#x662F;&#x600E;&#x4E48;&#x8BA1;&#x7B97;&#x7684;&#xFF0C;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x5BF9;&#x9996;&#x90E8;&#x68C0;&#x9A8C;&#x548C;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">check_sum</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">short</span> *arr, <span class="keyword">int</span> n)</span></span>{</div><div class="line">	<span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; ++i){</div><div class="line">		arr[i] = ~arr[i];</div><div class="line">		sum += arr[i];</div><div class="line">		sum = (sum&gt;&gt;<span class="number">16</span>) + (sum&amp;<span class="number">0xffff</span>);</div><div class="line">	}</div><div class="line">	<span class="keyword">return</span> sum;</div><div class="line">}</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">{</div><div class="line">	<span class="keyword">unsigned</span> <span class="keyword">short</span> arr[<span class="number">100</span>];</div><div class="line">	arr[<span class="number">0</span>] = <span class="number">0xc8d5</span>; <span class="comment">//&#x6E90;&#x7AEF;&#x53E3;</span></div><div class="line">	arr[<span class="number">1</span>] = <span class="number">0x0050</span>; <span class="comment">//&#x76EE;&#x7684;&#x7AEF;&#x53E3;</span></div><div class="line">	arr[<span class="number">2</span>] = <span class="number">0x000b</span>; <span class="comment">//udp&#x957F;&#x5EA6;&#xFF0C;8&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x9996;&#x90E8; + 4&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x6570;&#x636E;</span></div><div class="line">	arr[<span class="number">3</span>] = <span class="number">0x0000</span>; <span class="comment">//checksum</span></div><div class="line">	arr[<span class="number">4</span>] = <span class="number">0x6461</span>; <span class="comment">//&#x6570;&#x636E;&#x90E8;&#x5206;</span></div><div class="line">	arr[<span class="number">5</span>] = <span class="number">0x7400</span>; <span class="comment">//&#x5728;&#x6700;&#x540E;&#x589E;&#x52A0;&#x586B;&#x5145;&#x5B57;&#x8282;0</span></div><div class="line"></div><div class="line">	<span class="comment">//&#x4F2A;&#x9996;&#x90E8;</span></div><div class="line">	arr[<span class="number">6</span>] = <span class="number">0xc0a8</span>; <span class="comment">//&#x6E90;ip</span></div><div class="line">	arr[<span class="number">7</span>] = <span class="number">0x0064</span>;</div><div class="line">	arr[<span class="number">8</span>] = <span class="number">0x0c22</span>; <span class="comment">//&#x76EE;&#x7684;ip</span></div><div class="line">	arr[<span class="number">9</span>] = <span class="number">0x384e</span>;</div><div class="line">	arr[<span class="number">10</span>] = <span class="number">0x0011</span>; <span class="comment">// 0 + 8&#x4F4D;&#x534F;&#x8BAE;</span></div><div class="line">	arr[<span class="number">11</span>] = <span class="number">0x000b</span>; <span class="comment">//udp&#x957F;&#x5EA6;</span></div><div class="line">	<span class="keyword">int</span> n = <span class="number">12</span>;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%x\n&quot;</span>,check_sum(arr, n));</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>&#x8FD0;&#x884C;&#x8BE5;&#x4EE3;&#x7801;&#x540E;&#xFF0C;&#x679C;&#x7136;&#x53D1;&#x73B0;&#x68C0;&#x9A8C;&#x548C;&#x662F;<code>0x58d4</code></p>
+<p>&#x6CE8;&#xFF1A;&#x4F7F;&#x7528;Python&#x53D1;&#x9001;UDP&#x662F;&#x56E0;&#x4E3A;Python&#x53D1;&#x9001;&#x6570;&#x636E;&#x62A5;&#x7B80;&#x5355;&#xFF0C;&#x4F7F;&#x7528;C++&#x8BA1;&#x7B97;&#x68C0;&#x9A8C;&#x548C;&#x662F;&#x56E0;&#x4E3A;C++&#x4F4D;&#x8FD0;&#x7B97;&#x65B9;&#x4FBF;&#xFF0C;Python&#x4F4D;&#x8FD0;&#x7B97;&#x8FD8;&#x9700;&#x8981;&#x7528;&#x5230;struct&#x5305;&#xFF0C;&#x592A;&#x9EBB;&#x70E6;&#x4E86;&#x3002;</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;UDP&amp;#x9996;&amp;#x90E8;&amp;#x68C0;&amp;#x9A8C;&amp;#x548C;&amp;#x7684;&amp;#x8BA1;&amp;#x7B97;&amp;#x89C4;&amp;#x5219;&quot;&gt;&lt;a href=&quot;#UDP&amp;#x9996;&amp;#x90E8;&amp;#x68C0;&amp;#x9A8C;&amp;#x548C;&amp;#x7684;&amp;#x8BA1;&amp;#x7B97;&amp;#x89C4;&amp;#x5219;&quot; class=&quot;headerlink&quot; title=&quot;UDP&amp;#x9996;&amp;#x90E8;&amp;#x68C0;&amp;#x9A8C;&amp;#x548C;&amp;#x7684;&amp;#x8BA1;&amp;#x7B97;&amp;#x89C4;&amp;#x5219;&quot;&gt;&lt;/a&gt;UDP&amp;#x9996;&amp;#x90E8;&amp;#x68C0;&amp;#x9A8C;&amp;#x548C;&amp;#x7684;&amp;#x8BA1;&amp;#x7B97;&amp;#x89C4;&amp;#x5219;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;ARP&amp;#x534F;&amp;#x8BAE;&amp;#xFF0C;IP&amp;#x534F;&amp;#x8BAE;&amp;#x9996;&amp;#x90E8;&amp;#x7684;&amp;#x68C0;&amp;#x9A8C;&amp;#x548C;&amp;#x8BA1;&amp;#x7B97;&amp;#x65F6;&amp;#x90FD;&amp;#x662F;&amp;#x5148;&amp;#x5C06;&lt;code&gt;checksum&lt;/code&gt;&amp;#x5B57;&amp;#x6BB5;&amp;#x7F6E;&amp;#x4E3A;0&amp;#xFF0C;&amp;#x7136;&amp;#x540E;&amp;#x5BF9;&amp;#x9996;&amp;#x90E8;&amp;#x5B57;&amp;#x6BB5;&amp;#x8FDB;&amp;#x884C;16&amp;#x4F4D;&amp;#x53CD;&amp;#x7801;&amp;#x6C42;&amp;#x548C;&amp;#xFF0C;&amp;#x5E76;&amp;#x4E0D;&amp;#x4F1A;&amp;#x8986;&amp;#x76D6;&amp;#x6570;&amp;#x636E;&amp;#x90E8;&amp;#x5206;&amp;#x3002;&amp;#x800C;UDP&amp;#x8BA1;&amp;#x7B97;&amp;#x68C0;&amp;#x9A8C;&amp;#x548C;&amp;#x65F6;&amp;#x4F1A;&amp;#x5BF9;UDP&amp;#x4F2A;&amp;#x9996;&amp;#x90E8;&amp;#x3001;UDP&amp;#x9996;&amp;#x90E8;&amp;#x3001;UDP&amp;#x6570;&amp;#x636E;&amp;#x90E8;&amp;#x5206;&amp;#x90FD;&amp;#x8FDB;&amp;#x884C;16&amp;#x4F4D;&amp;#x53CD;&amp;#x7801;&amp;#x6C42;&amp;#x548C;&amp;#xFF0C;&amp;#x7531;&amp;#x4E8E;&amp;#x6570;&amp;#x636E;&amp;#x90E8;&amp;#x5206;&amp;#x53EF;&amp;#x80FD;&amp;#x662F;&amp;#x5947;&amp;#x6570;&amp;#x4F4D;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x5982;&amp;#x679C;&amp;#x6570;&amp;#x636E;&amp;#x90E8;&amp;#x5206;&amp;#x4E3A;&amp;#x5947;&amp;#x6570;&amp;#x4F4D;&amp;#x65F6;&amp;#xFF0C;&amp;#x4E3A;&amp;#x4E86;&amp;#x8BA1;&amp;#x7B97;&amp;#x68C0;&amp;#x9A8C;&amp;#x548C;&amp;#x4F1A;&amp;#x5728;&amp;#x6700;&amp;#x540E;&amp;#x589E;&amp;#x52A0;&amp;#x586B;&amp;#x5145;&amp;#x5B57;&amp;#x8282;0&amp;#xFF0C;&amp;#x8FD9;&amp;#x53EA;&amp;#x662F;&amp;#x4E3A;&amp;#x4E86;&amp;#x8BA1;&amp;#x7B97;&amp;#x68C0;&amp;#x9A8C;&amp;#x548C;&amp;#xFF0C;&amp;#x5E76;&amp;#x4E0D;&amp;#x4F1A;&amp;#x88AB;&amp;#x53D1;&amp;#x9001;&amp;#x3002;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;&amp;#x4E3A;&amp;#x4EC0;&amp;#x4E48;&amp;#x8981;&amp;#x52A0;&amp;#x4E0A;&amp;#x4F2A;&amp;#x9996;&amp;#x90E8;&amp;#x7136;&amp;#x540E;&amp;#x8BA1;&amp;#x7B97;&amp;#x68C0;&amp;#x9A8C;&amp;#x548C;&amp;#x5462;&amp;#xFF1F;
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="计算机网络" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="运输层" scheme="http://yoursite.com/tags/%E8%BF%90%E8%BE%93%E5%B1%82/"/>
+    
+      <category term="UDP" scheme="http://yoursite.com/tags/UDP/"/>
+    
+  </entry>
   
   <entry>
     <title>用户数据报协议（User Datagram Protocol）</title>
@@ -39,9 +82,9 @@
       <category term="计算机网络" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="传输层" scheme="http://yoursite.com/tags/%E4%BC%A0%E8%BE%93%E5%B1%82/"/>
-    
       <category term="UDP" scheme="http://yoursite.com/tags/UDP/"/>
+    
+      <category term="传输层" scheme="http://yoursite.com/tags/%E4%BC%A0%E8%BE%93%E5%B1%82/"/>
     
   </entry>
   
@@ -194,9 +237,9 @@
       <category term="计算机网络" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="ARP" scheme="http://yoursite.com/tags/ARP/"/>
-    
       <category term="数据链路层" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/"/>
+    
+      <category term="ARP" scheme="http://yoursite.com/tags/ARP/"/>
     
   </entry>
   
@@ -205,7 +248,7 @@
     <link href="http://yoursite.com/2016/08/07/use-hexo-github-to-build-blog/"/>
     <id>http://yoursite.com/2016/08/07/use-hexo-github-to-build-blog/</id>
     <published>2016-08-07T00:51:49.000Z</published>
-    <updated>2016-08-07T23:38:29.000Z</updated>
+    <updated>2016-08-08T00:09:00.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>hexo&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;node.js&#x7684;&#x9759;&#x6001;&#x535A;&#x5BA2;&#x7A0B;&#x5E8F;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;markdown&#x8BED;&#x8A00;&#x6765;&#x7F16;&#x5199;&#x4F60;&#x7684;&#x535A;&#x5BA2;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;hexo&#x63D0;&#x4F9B;&#x7684;&#x547D;&#x4EE4;&#x5C06;&#x5176;&#x8F6C;&#x6362;&#x6210;&#x751F;&#x6210;&#x9759;&#x6001;&#x7F51;&#x9875;&#xFF0C;&#x5177;&#x4F53;&#x8F6C;&#x5316;&#x4E3A;&#x4F55;&#x79CD;&#x6837;&#x5F0F;&#x7684;&#x9759;&#x6001;&#x754C;&#x9762;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x4F60;&#x6240;&#x9009;&#x7684;&#x4E3B;&#x9898;&#x3002;</p>
@@ -244,6 +287,7 @@
 <p>&#x4E5F;&#x8BB8;&#x90E8;&#x7F72;&#x65F6;&#x4F1A;&#x51FA;&#x73B0;&#x4EE5;&#x4E0B;&#x9519;&#x8BEF;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ERROR Deployer not found: git &#x6216;&#x8005; ERROR Deployer not found: github</div></pre></td></tr></table></figure></p>
 <p>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x662F;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
 <p>&#x5176;&#x5B9E;&#x90E8;&#x7F72;&#x7684;&#x53EA;&#x662F;&#x7531;hexo&#x751F;&#x6210;&#x7684;&#x9759;&#x6001;&#x9875;&#x9762;&#xFF0C;&#x6211;&#x4EEC;&#x4E66;&#x5199;&#x7684;markdown&#x8FD8;&#x662F;&#x5728;&#x672C;&#x5730;&#x5B58;&#x50A8;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x8981;&#x4EE5;&#x4E3A;&#x4F60;&#x90E8;&#x7F72;&#x5230;github&#x4E0A;&#x4F60;&#x5C31;&#x4E0D;&#x7528;&#x5907;&#x4EFD;&#x672C;&#x5730;&#x7684;&#x535A;&#x5BA2;&#x4E86;&#x3002;</p>
+<p>&#x8FD8;&#x9700;&#x8981;&#x5BF9;&#x535A;&#x5BA2;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x5907;&#x4EFD;&#xFF0C;&#x5177;&#x4F53;&#x5982;&#x4F55;&#x5907;&#x4EFD;&#x89C1; <a href="/2016/08/07/backup-hexo">&#x5907;&#x4EFD; hexo &#x535A;&#x5BA2;</a></p>
 ]]></content>
     
     <summary type="html">
@@ -257,9 +301,9 @@
       <category term="博客" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
       <category term="github" scheme="http://yoursite.com/tags/github/"/>
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
   </entry>
   
