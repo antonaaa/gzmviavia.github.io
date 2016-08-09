@@ -4,9 +4,9 @@
   <subtitle>this is a blog</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://gzmviavia.github.io/"/>
   <updated>2016-08-09T00:44:50.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://gzmviavia.github.io/</id>
   
   <author>
     <name>gzmviavia</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>UDP首部检验和</title>
-    <link href="http://yoursite.com/2016/08/08/udp-header-check-sum/"/>
-    <id>http://yoursite.com/2016/08/08/udp-header-check-sum/</id>
+    <link href="https://gzmviavia.github.io/2016/08/08/udp-header-check-sum/"/>
+    <id>https://gzmviavia.github.io/2016/08/08/udp-header-check-sum/</id>
     <published>2016-08-08T15:02:38.000Z</published>
     <updated>2016-08-09T00:44:50.000Z</updated>
     
@@ -47,19 +47,19 @@
     
     </summary>
     
-      <category term="计算机网络" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+      <category term="计算机网络" scheme="https://gzmviavia.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="运输层" scheme="http://yoursite.com/tags/%E8%BF%90%E8%BE%93%E5%B1%82/"/>
+      <category term="运输层" scheme="https://gzmviavia.github.io/tags/%E8%BF%90%E8%BE%93%E5%B1%82/"/>
     
-      <category term="UDP" scheme="http://yoursite.com/tags/UDP/"/>
+      <category term="UDP" scheme="https://gzmviavia.github.io/tags/UDP/"/>
     
   </entry>
   
   <entry>
     <title>用户数据报协议（User Datagram Protocol）</title>
-    <link href="http://yoursite.com/2016/08/08/user-datagram-protocol/"/>
-    <id>http://yoursite.com/2016/08/08/user-datagram-protocol/</id>
+    <link href="https://gzmviavia.github.io/2016/08/08/user-datagram-protocol/"/>
+    <id>https://gzmviavia.github.io/2016/08/08/user-datagram-protocol/</id>
     <published>2016-08-07T23:17:33.000Z</published>
     <updated>2016-08-07T23:46:28.000Z</updated>
     
@@ -77,19 +77,19 @@
     
     </summary>
     
-      <category term="计算机网络" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+      <category term="计算机网络" scheme="https://gzmviavia.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="UDP" scheme="http://yoursite.com/tags/UDP/"/>
+      <category term="UDP" scheme="https://gzmviavia.github.io/tags/UDP/"/>
     
-      <category term="传输层" scheme="http://yoursite.com/tags/%E4%BC%A0%E8%BE%93%E5%B1%82/"/>
+      <category term="传输层" scheme="https://gzmviavia.github.io/tags/%E4%BC%A0%E8%BE%93%E5%B1%82/"/>
     
   </entry>
   
   <entry>
     <title>备份 hexo 博客</title>
-    <link href="http://yoursite.com/2016/08/07/backup-hexo/"/>
-    <id>http://yoursite.com/2016/08/07/backup-hexo/</id>
+    <link href="https://gzmviavia.github.io/2016/08/07/backup-hexo/"/>
+    <id>https://gzmviavia.github.io/2016/08/07/backup-hexo/</id>
     <published>2016-08-07T07:51:24.000Z</published>
     <updated>2016-08-07T23:38:05.000Z</updated>
     
@@ -115,17 +115,17 @@
     
     </summary>
     
-      <category term="博客" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://gzmviavia.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+      <category term="hexo" scheme="https://gzmviavia.github.io/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>地址解析协议ARP</title>
-    <link href="http://yoursite.com/2016/08/07/address-resolution-protocol/"/>
-    <id>http://yoursite.com/2016/08/07/address-resolution-protocol/</id>
+    <link href="https://gzmviavia.github.io/2016/08/07/address-resolution-protocol/"/>
+    <id>https://gzmviavia.github.io/2016/08/07/address-resolution-protocol/</id>
     <published>2016-08-07T02:40:38.000Z</published>
     <updated>2016-08-07T23:39:55.000Z</updated>
     
@@ -232,19 +232,19 @@
     
     </summary>
     
-      <category term="计算机网络" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+      <category term="计算机网络" scheme="https://gzmviavia.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="数据链路层" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/"/>
+      <category term="数据链路层" scheme="https://gzmviavia.github.io/tags/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/"/>
     
-      <category term="ARP" scheme="http://yoursite.com/tags/ARP/"/>
+      <category term="ARP" scheme="https://gzmviavia.github.io/tags/ARP/"/>
     
   </entry>
   
   <entry>
     <title>hexo + github 搭建博客</title>
-    <link href="http://yoursite.com/2016/08/07/use-hexo-github-to-build-blog/"/>
-    <id>http://yoursite.com/2016/08/07/use-hexo-github-to-build-blog/</id>
+    <link href="https://gzmviavia.github.io/2016/08/07/use-hexo-github-to-build-blog/"/>
+    <id>https://gzmviavia.github.io/2016/08/07/use-hexo-github-to-build-blog/</id>
     <published>2016-08-07T00:51:49.000Z</published>
     <updated>2016-08-08T16:12:58.000Z</updated>
     
@@ -296,12 +296,12 @@
     
     </summary>
     
-      <category term="博客" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://gzmviavia.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+      <category term="hexo" scheme="https://gzmviavia.github.io/tags/hexo/"/>
     
-      <category term="github" scheme="http://yoursite.com/tags/github/"/>
+      <category term="github" scheme="https://gzmviavia.github.io/tags/github/"/>
     
   </entry>
   
