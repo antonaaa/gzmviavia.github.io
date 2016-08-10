@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://gzmviavia.github.io/2016/08/09/transmission-control-protocol1/</loc>
+    
+    <lastmod>2016-08-10T07:26:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gzmviavia.github.io/2016/08/08/udp-header-check-sum/</loc>
+    
+    <lastmod>2016-08-10T03:54:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://gzmviavia.github.io/2016/08/09/user-datagram-protocol/</loc>
     
-    <lastmod>2016-08-09T02:01:30.000Z</lastmod>
+    <lastmod>2016-08-10T01:46:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gzmviavia.github.io/2016/08/09/transmission-control-protocol2/</loc>
+    
+    <lastmod>2016-08-09T13:52:28.000Z</lastmod>
     
   </url>
   
@@ -19,13 +40,6 @@
     <loc>https://gzmviavia.github.io/2016/07/07/use-hexo-github-to-build-blog/</loc>
     
     <lastmod>2016-08-09T01:13:01.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gzmviavia.github.io/2016/08/08/udp-header-check-sum/</loc>
-    
-    <lastmod>2016-08-09T00:44:50.000Z</lastmod>
     
   </url>
   
