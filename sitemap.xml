@@ -2,16 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://gzmviavia.github.io/2016/08/24/io-model/</loc>
+    <loc>https://gzmviavia.github.io/2016/08/13/transmission-control-protocol4/</loc>
     
-    <lastmod>2016-08-25T11:52:03.000Z</lastmod>
+    <lastmod>2016-08-25T11:55:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gzmviavia.github.io/2016/08/12/transmission-control-protocol3/</loc>
+    
+    <lastmod>2016-08-25T11:54:59.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gzmviavia.github.io/2016/08/11/transmission-control-protocol2/</loc>
+    
+    <lastmod>2016-08-25T11:54:49.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://gzmviavia.github.io/2016/08/10/transmission-control-protocol1/</loc>
     
-    <lastmod>2016-08-25T11:44:56.000Z</lastmod>
+    <lastmod>2016-08-25T11:54:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gzmviavia.github.io/2016/08/09/user-datagram-protocol/</loc>
+    
+    <lastmod>2016-08-25T11:54:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gzmviavia.github.io/2016/08/02/address-resolution-protocol/</loc>
+    
+    <lastmod>2016-08-25T11:54:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gzmviavia.github.io/2016/08/24/io-model/</loc>
+    
+    <lastmod>2016-08-25T11:52:03.000Z</lastmod>
     
   </url>
   
@@ -30,44 +65,9 @@
   </url>
   
   <url>
-    <loc>https://gzmviavia.github.io/2016/08/11/transmission-control-protocol2/</loc>
-    
-    <lastmod>2016-08-16T15:12:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gzmviavia.github.io/2016/08/13/transmission-control-protocol4/</loc>
-    
-    <lastmod>2016-08-15T00:40:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gzmviavia.github.io/2016/08/12/transmission-control-protocol3/</loc>
-    
-    <lastmod>2016-08-12T09:27:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gzmviavia.github.io/2016/08/02/address-resolution-protocol/</loc>
-    
-    <lastmod>2016-08-10T11:22:35.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://gzmviavia.github.io/2016/08/08/udp-header-check-sum/</loc>
     
     <lastmod>2016-08-10T03:54:45.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gzmviavia.github.io/2016/08/09/user-datagram-protocol/</loc>
-    
-    <lastmod>2016-08-10T01:46:27.000Z</lastmod>
     
   </url>
   
