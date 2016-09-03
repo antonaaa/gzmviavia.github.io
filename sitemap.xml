@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://gzmviavia.github.io/2016/08/13/transmission-control-protocol4/</loc>
+    <loc>https://gzmviavia.github.io/2016/09/01/socket-fileobj/</loc>
     
-    <lastmod>2016-08-27T04:33:29.000Z</lastmod>
+    <lastmod>2016-09-01T06:43:55.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://gzmviavia.github.io/2016/08/25/socket/</loc>
     
-    <lastmod>2016-08-27T04:33:00.000Z</lastmod>
+    <lastmod>2016-09-01T05:03:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gzmviavia.github.io/2016/08/13/transmission-control-protocol4/</loc>
+    
+    <lastmod>2016-08-27T04:33:29.000Z</lastmod>
     
   </url>
   
