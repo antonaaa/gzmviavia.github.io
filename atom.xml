@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gzmviavia.github.io/"/>
-  <updated>2016-09-03T09:27:57.000Z</updated>
+  <updated>2016-09-04T08:09:21.000Z</updated>
   <id>https://gzmviavia.github.io/</id>
   
   <author>
@@ -14,6 +14,199 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL数据类型</title>
+    <link href="https://gzmviavia.github.io/2016/09/04/mysql-datatype/"/>
+    <id>https://gzmviavia.github.io/2016/09/04/mysql-datatype/</id>
+    <published>2016-09-04T05:16:21.000Z</published>
+    <updated>2016-09-04T08:09:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x7C7B;&#x578B;"><a href="#&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x7C7B;&#x578B;" class="headerlink" title="&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x7C7B;&#x578B;"></a>&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x7C7B;&#x578B;</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">MySQL&#x6570;&#x636E;&#x7C7B;&#x578B;</th>
+<th style="text-align:center">&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">date</td>
+<td style="text-align:center">3&#x5B57;&#x8282;&#xFF0C;&#x65E5;&#x671F;&#xFF0C;&#x683C;&#x5F0F;&#xFF1A;2014-09-18</td>
+</tr>
+<tr>
+<td style="text-align:center">time</td>
+<td style="text-align:center">3&#x5B57;&#x8282;&#xFF0C;&#x65F6;&#x95F4;&#xFF0C;&#x683C;&#x5F0F;&#xFF1A;08:42:12</td>
+</tr>
+<tr>
+<td style="text-align:center">datetime</td>
+<td style="text-align:center">8&#x5B57;&#x8282;&#xFF0C;&#x65E5;&#x671F;&#x65F6;&#x95F4;&#xFF0C;&#x683C;&#x5F0F;&#xFF1A;2014-09-18 08:42:12</td>
+</tr>
+<tr>
+<td style="text-align:center">timestamp</td>
+<td style="text-align:center">8&#x5B57;&#x8282;&#xFF0C;&#x683C;&#x5F0F;&#x540C;datetime&#xFF0C;&#x4F46;&#x662F;timestamp&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x5B58;&#x50A8;&#x8BB0;&#x5F55;&#x4FEE;&#x6539;&#x7684;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td style="text-align:center">year</td>
+<td style="text-align:center">1&#x5B57;&#x8282;&#xFF0C;&#x5E74;&#x4EFD;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8981;&#x60F3;&#x8BA9;timestamp&#x81EA;&#x52A8;&#x5B58;&#x50A8;&#x8BB0;&#x5F55;&#x4FEE;&#x6539;&#x7684;&#x65F6;&#x95F4;&#xFF0C; &#x90A3;&#x4E48;&#x8BBE;&#x7F6E;&#x8BE5;&#x5B57;&#x6BB5;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;<code>CURRENT_TIMESTAMP</code>&#x3002;<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">test</span>(</div><div class="line">	<span class="string">&apos;id&apos;</span> <span class="built_in">int</span>,</div><div class="line">	<span class="string">&apos;since_update&apos;</span> <span class="keyword">timestamp</span> <span class="keyword">default</span> <span class="keyword">current_timestamp</span></div><div class="line">);</div></pre></td></tr></table></figure></p>
+<h2 id="&#x6574;&#x5F62;"><a href="#&#x6574;&#x5F62;" class="headerlink" title="&#x6574;&#x5F62;"></a>&#x6574;&#x5F62;</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">MySQL&#x6570;&#x636E;&#x7C7B;&#x578B;</th>
+<th style="text-align:center">&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">tinyint</td>
+<td style="text-align:center">1&#x5B57;&#x8282;&#xFF0C;&#x8303;&#x56F4;&#xFF08;-128~127&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:center">smallint</td>
+<td style="text-align:center">2&#x5B57;&#x8282;&#xFF0C;&#x8303;&#x56F4;&#xFF08;-32768~32767&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:center">mediumint</td>
+<td style="text-align:center">3&#x5B57;&#x8282;&#xFF0C;&#x8303;&#x56F4;&#xFF08;-8388608~8388607&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">4&#x5B57;&#x8282;&#xFF0C;&#x8303;&#x56F4;&#xFF08;-2147483648~2147483647&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:center">bigint</td>
+<td style="text-align:center">8&#x5B57;&#x8282;&#xFF0C;&#x8303;&#x56F4;&#xFF08;-9223372036854775808~9223372036854775807&#xFF09;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x4E0A;&#x9762;&#x6240;&#x8BF4;&#x7684;&#x662F;&#x6709;&#x7B26;&#x53F7;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x6539;&#x6210;<code>unsigned</code>&#xFF0C;&#x90A3;&#x4E48;&#x8303;&#x56F4;&#x4E5F;&#x4F1A;&#x76F8;&#x5E94;&#x53D1;&#x751F;&#x53D8;&#x5316;</p>
+<h2 id="&#x6D6E;&#x70B9;&#x578B;"><a href="#&#x6D6E;&#x70B9;&#x578B;" class="headerlink" title="&#x6D6E;&#x70B9;&#x578B;"></a>&#x6D6E;&#x70B9;&#x578B;</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">MySQL&#x6570;&#x636E;&#x7C7B;&#x578B;</th>
+<th style="text-align:center">&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">decimal(m, d)</td>
+<td style="text-align:center">4&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x5355;&#x7CBE;&#x5EA6;&#x6D6E;&#x70B9;&#x6570;&#xFF0C;&#x603B;&#x5171;m&#x4E2A;&#x4F4D;&#x6570;&#xFF0C;d&#x4E2A;&#x5C0F;&#x6570;&#x4F4D;</td>
+</tr>
+<tr>
+<td style="text-align:center">float(m, d)</td>
+<td style="text-align:center">8&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x53CC;&#x7CBE;&#x5EA6;&#x6D6E;&#x70B9;&#x6570;&#xFF0C;&#x603B;&#x5171;m&#x4E2A;&#x4F4D;&#x6570;&#xFF0C;d&#x4E2A;&#x5C0F;&#x6570;&#x4F4D;</td>
+</tr>
+<tr>
+<td style="text-align:center">double(m, d)</td>
+<td style="text-align:center">&#x5B58;&#x50A8;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x6D6E;&#x70B9;&#x6570;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;"><a href="#&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;" class="headerlink" title="&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;"></a>&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">MySQL&#x6570;&#x636E;&#x7C7B;&#x578B;</th>
+<th style="text-align:center">&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">char(n)</td>
+<td style="text-align:center">&#x56FA;&#x5B9A;&#x957F;&#x5EA6;&#xFF0C;&#x6700;&#x591A;255&#x4E2A;&#x5B57;&#x7B26;</td>
+</tr>
+<tr>
+<td style="text-align:center">varchar(n)</td>
+<td style="text-align:center">&#x53EF;&#x53D8;&#x957F;&#x5EA6;&#xFF0C;&#x6700;&#x591A;65535&#x4E2A;&#x5B57;&#x7B26;</td>
+</tr>
+<tr>
+<td style="text-align:center">tinytext</td>
+<td style="text-align:center">&#x53EF;&#x53D8;&#x957F;&#x5EA6;&#xFF0C;&#x6700;&#x591A;255&#x4E2A;&#x5B57;&#x7B26;</td>
+</tr>
+<tr>
+<td style="text-align:center">text</td>
+<td style="text-align:center">&#x53EF;&#x53D8;&#x957F;&#x5EA6;&#xFF0C;&#x6700;&#x591A;65535&#x4E2A;&#x5B57;&#x7B26;</td>
+</tr>
+<tr>
+<td style="text-align:center">mediumtext</td>
+<td style="text-align:center">&#x53EF;&#x53D8;&#x957F;&#x5EA6;&#xFF0C;&#x6700;&#x591A;2^24-1&#x4E2A;&#x5B57;&#x7B26;</td>
+</tr>
+<tr>
+<td style="text-align:center">longtext</td>
+<td style="text-align:center">&#x53EF;&#x53D8;&#x957F;&#x5EA6;&#xFF0C;&#x6700;&#x591A;2^32-1&#x4E2A;&#x5B57;&#x7B26;</td>
+</tr>
+<tr>
+<td style="text-align:center">json</td>
+<td style="text-align:center">&#x63D2;&#x5165;&#x5B57;&#x7B26;&#x4E32;&#x5FC5;&#x987B;&#x7B26;&#x5408;json&#x683C;&#x5F0F;&#xFF0C; mysql&#x4F1A;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x8BED;&#x6CD5;&#x68C0;&#x67E5;&#xFF0C;&#x5982;&#x679C;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;&#x4F1A;&#x62A5;&#x9519;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x4E8C;&#x8FDB;&#x5236;&#x7C7B;&#x578B;"><a href="#&#x4E8C;&#x8FDB;&#x5236;&#x7C7B;&#x578B;" class="headerlink" title="&#x4E8C;&#x8FDB;&#x5236;&#x7C7B;&#x578B;"></a>&#x4E8C;&#x8FDB;&#x5236;&#x7C7B;&#x578B;</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">MySQL&#x6570;&#x636E;&#x7C7B;&#x578B;</th>
+<th style="text-align:center">&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">tinyblob</td>
+<td style="text-align:center">&#x6700;&#x591A;255&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;</td>
+</tr>
+<tr>
+<td style="text-align:center">blob</td>
+<td style="text-align:center">&#x6700;&#x591A;65535&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;</td>
+</tr>
+<tr>
+<td style="text-align:center">mediumblob</td>
+<td style="text-align:center">&#x6700;&#x591A;2^24-1&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;</td>
+</tr>
+<tr>
+<td style="text-align:center">longblob</td>
+<td style="text-align:center">&#x6700;&#x591A;2^32-1&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6CE8;&#x610F;&#x5B57;&#x7B26;&#x548C;&#x5B57;&#x8282;&#x7684;&#x533A;&#x522B;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
+<ul>
+<li>tinytext&#x80FD;&#x591F;&#x5B58;&#x50A8;255&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x8FD9;255&#x4E2A;&#x5B57;&#x7B26;&#x4E0D;&#x8BBA;&#x662F;255&#x4E2A;&#x82F1;&#x6587;&#x8FD8;&#x662F;255&#x4E2A;&#x4E2D;&#x6587;&#xFF0C;&#x90FD;&#x662F;&#x53EF;&#x4EE5;&#x5B58;&#x50A8;&#x7684;&#x3002;</li>
+<li>tinyblob&#x80FD;&#x591F;&#x5B58;&#x50A8;255&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x90A3;&#x4E48;&#x662F;&#x5B58;&#x50A8;&#x4E0D;&#x4E86;255&#x4E2A;&#x4E2D;&#x6587;&#x7684;&#x3002;</li>
+</ul>
+<h2 id="&#x6570;&#x636E;&#x957F;&#x5EA6;&#x8D85;&#x8FC7;&#x9650;&#x5236;"><a href="#&#x6570;&#x636E;&#x957F;&#x5EA6;&#x8D85;&#x8FC7;&#x9650;&#x5236;" class="headerlink" title="&#x6570;&#x636E;&#x957F;&#x5EA6;&#x8D85;&#x8FC7;&#x9650;&#x5236;"></a>&#x6570;&#x636E;&#x957F;&#x5EA6;&#x8D85;&#x8FC7;&#x9650;&#x5236;</h2><p>&#x5F53;&#x63D2;&#x5165;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x8D85;&#x8FC7;&#x6570;&#x636E;&#x5E93;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x957F;&#x5EA6;&#x9650;&#x5236;&#x65F6;&#xFF0C;&#x4F1A;&#x53D1;&#x751F;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x53EF;&#x80FD;&#x7684;&#x60C5;&#x51B5;&#x3002;</p>
+<ol>
+<li>&#x6570;&#x636E;&#x53D1;&#x751F;&#x622A;&#x65AD;&#xFF0C;&#x5C06;&#x622A;&#x65AD;&#x4E4B;&#x540E;&#x7684;&#x6570;&#x636E;&#x63D2;&#x5165;&#x5230;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x3002;</li>
+<li>&#x7A0B;&#x5E8F;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x62A5;&#x9519;&#x7C7B;&#x4F3C;<code>xxx out of range</code>&#x6216;&#x8005;<code>xxx to long</code>&#x7684;&#x9519;&#x8BEF;&#x3002;</li>
+</ol>
+<p>&#x5177;&#x4F53;&#x53D1;&#x751F;&#x4F55;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x6570;&#x636E;&#x5E93;&#x5904;&#x4E8E;&#x4F55;&#x79CD;&#x6A21;&#x5F0F;&#x3002;</p>
+<ol>
+<li>&#x5F53;&#x53D1;&#x751F;&#x7B2C;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#x65F6;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x5904;&#x4E8E;<strong>&#x677E;&#x6563;&#x6A21;&#x5F0F;</strong>&#xFF0C; &#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;<code>my.cnf</code>&#x4E2D;&#x7684;<code>sql_mode=&apos;&apos;&#xFF1B;</code>&#x6765;&#x8BBE;&#x7F6E;&#x8BE5;&#x6A21;&#x5F0F;&#x3002;</li>
+<li>&#x5F53;&#x53D1;&#x751F;&#x7B2C;&#x4E8C;&#x79CD;&#x60C5;&#x51B5;&#x65F6;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x5904;&#x4E8E;<strong>&#x4E25;&#x683C;&#x6A21;&#x5F0F;</strong>&#xFF0C; &#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;<code>my.cnf</code>&#x4E2D;&#x7684;<code>sql_mode=&quot;STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;;</code>&#x6765;&#x8BBE;&#x7F6E;&#x8BE5;&#x6A21;&#x5F0F;&#x3002;</li>
+</ol>
+<p>&#x5982;&#x679C;&#x5728;mac&#x7535;&#x8111;&#x4E0B;&#x7684;&#x76EE;&#x5F55;<code>/etc/</code>&#xFF0C;&#x6CA1;&#x6709;<code>my.cnf</code>&#x6587;&#x4EF6;&#xFF0C; &#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x53BB;&#x76EE;&#x5F55;<code>/usr/local/mysql/support-files</code>&#x4E0B;&#x590D;&#x5236;<code>my-medim-cnf</code>&#x6587;&#x4EF6;&#x5230;<code>/etc/</code>&#x76EE;&#x5F55;,&#x7136;&#x540E;&#x91CD;&#x65B0;&#x547D;&#x540D;&#x5C31;&#x597D;&#x4E86;&#x3002;</p>
+<p>&#x5EFA;&#x8BAE;&#x5F00;&#x542F;&#x7B2C;&#x4E8C;&#x79CD;&#x6A21;&#x5F0F;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x6837;&#x4FBF;&#x4E8E;&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x3002; </p>
+<p><br><br>&#x53C2;&#x8003;&#xFF1A;</p>
+<ul>
+<li><a href="http://www.jb51.net/article/55853.htm" target="_blank" rel="external">MySQL&#x6570;&#x636E;&#x7C7B;&#x578B;&#x548C;&#x5E38;&#x7528;&#x5B57;&#x6BB5;&#x5C5E;&#x6027;&#x603B;&#x7ED3;</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;&amp;#x65E5;&amp;#x671F;&amp;#x548C;&amp;#x65F6;&amp;#x95F4;&amp;#x7C7B;&amp;#x578B;&quot;&gt;&lt;a href=&quot;#&amp;#x65E5;&amp;#x671F;&amp;#x548C;&amp;#x65F6;&amp;#x95F4;&amp;#x7C7B;&amp;#x578B;&quot; class=
+    
+    </summary>
+    
+      <category term="数据库" scheme="https://gzmviavia.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="MySQL" scheme="https://gzmviavia.github.io/tags/MySQL/"/>
+    
+      <category term="数据库" scheme="https://gzmviavia.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>Python Database API</title>
